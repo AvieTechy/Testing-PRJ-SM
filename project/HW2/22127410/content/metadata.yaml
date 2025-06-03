@@ -1,0 +1,61 @@
+---
+# Document Metadata
+title: "Homework 02 - Domain Testing Individual Report"
+subtitle: "Lưu Thanh Thuý - 22127410"
+date: "June, 2025"
+lang: "en"
+# abstract: |
+#   Báo cáo này trình bày đề xuất phát triển hệ thống bãi đỗ xe thông minh
+#   ứng dụng công nghệ AIoT, nhằm tự động hóa và tối ưu hóa quy trình quản lý
+#   bãi đỗ xe. Giải pháp đề xuất kết hợp các công nghệ nhận diện hình ảnh (biển số xe,
+#   khuôn mặt người lái) và hệ thống cảm biến IoT để theo dõi tình trạng chỗ đỗ trong
+#   thời gian thực, loại bỏ thao tác thủ công và giảm thiểu sai sót trong quá trình vận hành.
+#   Các tính năng chính bao gồm: tự động nhận diện phương tiện ra vào, giám sát trạng thái chỗ đỗ,
+#   lưu trữ dữ liệu trên nền tảng cloud và cung cấp giao diện dashboard trực quan cho người quản lý.
+#   Hệ thống có thể triển khai linh hoạt tại nhiều môi trường khác nhau như trường học,
+#   khu dân cư, bãi xe công cộng, góp phần xây dựng hạ tầng đô thị thông minh và hiện đại.
+
+# Author information
+# author:
+#   - name: "Nguyễn Văn A"
+#     affiliation: "Nhóm 1"
+#     email: "19120001@student.hcmus.edu.vn"
+#   - name: "Trần Thị B"
+#     affiliation: "Nhóm 1"
+#     email: "19120002@student.hcmus.edu.vn"
+#   - name: "Lê Văn C"
+#     affiliation: "Nhóm 1"
+#     email: "19120003@student.hcmus.edu.vn"
+
+
+# Document formatting
+geometry: "margin=1in"
+fontsize: 12pt
+linestretch: 1.5
+papersize: a4
+# toc: true
+toc-depth: 3
+numbersections: true
+reference-section-title: "Tài liệu tham khảo"
+urlcolor: blue
+toccolor: red
+nocite: '@*'
+# Citation and bibliography
+# bibliography: references.bib
+# csl: ieee.csl
+link-citations: true
+
+# Additional parameters for PDF output
+header-includes: |
+  \usepackage{fancyhdr}
+  \pagestyle{fancy}
+  \fancyhead[LE,RO]{\thepage}
+  \fancyhead[RE,LO]{Homework 02}
+  \fancyfoot[CE,CO]{Group07 - Testing}
+---
+
+\pagebreak
+
+\tableofcontents
+
+\pagebreak
