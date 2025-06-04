@@ -1,0 +1,53 @@
+---
+# Document Metadata
+title: "HOMEWORK 2"
+subtitle: "Domain Testing"
+lang: "en"
+abstract: |
+  .
+
+# Author information
+# author:
+#   - name: "Nguyễn Văn A"
+#     affiliation: "Nhóm 1"
+#     email: "19120001@student.hcmus.edu.vn"
+
+
+# Team information
+team: "Group 7"
+class: "Software Testing - CSC13003"
+department: "Faculty of Information Technology"
+university: "university of Sciences - Ho Chi Minh City"
+
+# Document formatting
+geometry: "margin=1in"
+mainfont: "Times New Roman"
+fontsize: 12pt
+linestretch: 1.5
+papersize: a4
+# toc: true
+toc-depth: 3
+numbersections: true
+reference-section-title: "Report"
+urlcolor: blue
+toccolor: red
+nocite: '@*'
+# Citation and bibliography
+# bibliography: references.bib
+# csl: ieee.csl
+link-citations: true
+
+# Additional parameters for PDF output
+header-includes: |
+  \usepackage{fancyhdr}
+  \pagestyle{fancy}
+  \fancyhead[LE,RO]{\thepage}
+  \fancyhead[RE,LO]{HW2 - Domain Testing}
+  \fancyfoot[CE,CO]{Group 7}
+---
+
+\pagebreak
+
+\tableofcontents
+
+\pagebreak
