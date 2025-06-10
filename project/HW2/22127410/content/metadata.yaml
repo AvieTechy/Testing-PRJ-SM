@@ -1,61 +1,52 @@
----
-# Document Metadata
-title: "Homework 02 - Domain Testing Individual Report"
-subtitle: "Lưu Thanh Thuý - 22127410"
-date: "June, 2025"
-lang: "en"
-# abstract: |
-#   Báo cáo này trình bày đề xuất phát triển hệ thống bãi đỗ xe thông minh
-#   ứng dụng công nghệ AIoT, nhằm tự động hóa và tối ưu hóa quy trình quản lý
-#   bãi đỗ xe. Giải pháp đề xuất kết hợp các công nghệ nhận diện hình ảnh (biển số xe,
-#   khuôn mặt người lái) và hệ thống cảm biến IoT để theo dõi tình trạng chỗ đỗ trong
-#   thời gian thực, loại bỏ thao tác thủ công và giảm thiểu sai sót trong quá trình vận hành.
-#   Các tính năng chính bao gồm: tự động nhận diện phương tiện ra vào, giám sát trạng thái chỗ đỗ,
-#   lưu trữ dữ liệu trên nền tảng cloud và cung cấp giao diện dashboard trực quan cho người quản lý.
-#   Hệ thống có thể triển khai linh hoạt tại nhiều môi trường khác nhau như trường học,
-#   khu dân cư, bãi xe công cộng, góp phần xây dựng hạ tầng đô thị thông minh và hiện đại.
+title: "Software Testing Project Report"
 
-# Author information
-# author:
-#   - name: "Nguyễn Văn A"
-#     affiliation: "Nhóm 1"
-#     email: "19120001@student.hcmus.edu.vn"
-#   - name: "Trần Thị B"
-#     affiliation: "Nhóm 1"
-#     email: "19120002@student.hcmus.edu.vn"
-#   - name: "Lê Văn C"
-#     affiliation: "Nhóm 1"
-#     email: "19120003@student.hcmus.edu.vn"
+author:
+  - name: "Lưu Thanh Thuý"
+    id: "22127410"
+    class: "22KTPM3"
+    email: "ltthuy22@clc.fitus.edu.vn"
 
+supervisor:
+  - name: "Trần Duy Hoàng"
+    title: "Teacher "
+  - name: "Hồ Tuấn Thanh"
+    title: "Teacher"
+  - name: "Trương Phước Lộc"
+    title: "Teacher"
 
-# Document formatting
-geometry: "margin=1in"
-fontsize: 12pt
-linestretch: 1.5
-papersize: a4
-# toc: true
-toc-depth: 3
+institute: "University of Science - VNUHCM"
+faculty: "Faculty of Information Technology"
+logo: "./title/logo.png"
+
+course: "Software Testing"
+subject: "HW2 - Domain Testing"
+
+# Date formats
+date: \today
+date_vi: \today
+date_en: \today
+
+# Language selection
+langvi: false
+langen: true
+
+# Document settings
 numbersections: true
-reference-section-title: "Tài liệu tham khảo"
-urlcolor: blue
-toccolor: red
-nocite: '@*'
-# Citation and bibliography
-# bibliography: references.bib
-# csl: ieee.csl
-link-citations: true
+secnumdepth: 3  # Number H1, H2, and H3 headings (1=H1 only, 2=H1&H2, etc.)
 
-# Additional parameters for PDF output
-header-includes: |
-  \usepackage{fancyhdr}
-  \pagestyle{fancy}
-  \fancyhead[LE,RO]{\thepage}
-  \fancyhead[RE,LO]{Homework 02}
-  \fancyfoot[CE,CO]{Group07 - Testing}
----
+# Table of Contents settings
+toc: true  # Add table of contents
+toc-depth: 3  # Include H1-H3 in TOC
+toc-title: "Table of Contents"  # Custom title for TOC
+toc-newpage: true  # Start TOC on a new page
+toc-afterclear: true  # Add a page break after TOC
 
-\pagebreak
+# Section formatting (uncomment and modify to customize)
+# section-format: |
+#   \titleformat{\chapter}[display]{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+#   \titleformat{\section}{\normalfont\Large\bfseries\color{blue}}{\thesection}{1em}{}
+#   \titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+#   \titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
 
-\tableofcontents
-
-\pagebreak
+# Custom colors
+toccolor: "blue"  # Color for TOC links
