@@ -1,0 +1,52 @@
+title: "Software Testing Project Report"
+
+author:
+  - name: "Cao Uyển Nhi"
+    id: "22127310"
+    class: "22KTPM3"
+    email: "cunhi22@clc.fitus.edu.vn"
+
+supervisor:
+  - name: "Trần Duy Hoàng"
+    title: "Teacher "
+  - name: "Hồ Tuấn Thanh"
+    title: "Teacher"
+  - name: "Trương Phước Lộc"
+    title: "Teacher"
+
+institute: "University of Science - VNUHCM"
+faculty: "Faculty of Information Technology"
+logo: "./title/logo.png"
+
+course: "Software Testing"
+subject: "HW2 - Domain Testing"
+
+# Date formats
+date: \today
+date_vi: \today
+date_en: \today
+
+# Language selection
+langvi: false
+langen: true
+
+# Document settings
+numbersections: true
+secnumdepth: 3  # Number H1, H2, and H3 headings (1=H1 only, 2=H1&H2, etc.)
+
+# Table of Contents settings
+toc: true  # Add table of contents
+toc-depth: 3  # Include H1-H3 in TOC
+toc-title: "Table of Contents"  # Custom title for TOC
+toc-newpage: true  # Start TOC on a new page
+toc-afterclear: true  # Add a page break after TOC
+
+# Section formatting (uncomment and modify to customize)
+# section-format: |
+#   \titleformat{\chapter}[display]{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+#   \titleformat{\section}{\normalfont\Large\bfseries\color{blue}}{\thesection}{1em}{}
+#   \titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+#   \titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+# Custom colors
+toccolor: "blue"  # Color for TOC links
