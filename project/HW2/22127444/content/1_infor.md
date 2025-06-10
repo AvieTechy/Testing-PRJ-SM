@@ -1,20 +1,18 @@
-# Group Information and Task Allocation
+# Group Information
 
-| **Full Name**                   | **Student ID** | **Features**                                |
-| -------------------------- | --------------- | ------------------------------------ |
-| **Cao Uyen Nhi** | 22127310     | - Sign Up         |
-|  |      | - Checkout -> Payment         |
-|  |      | - Product Management         |
-| **Luu Thanh Thuy**   | 22127410      | - Sign In |
-|  |      | - User Managerment         |
-|  |      | - Filter and Search         |
-| **Nguyen Phuoc Minh Tri**           | 22127424     | - Home                 |
-|  |      | - Catalog         |
-|  |      | - Categories         |
-| **Vo Le Viet Tu**          |  22127435      | - Multi-language     |
-|  |      | - Order Management         |
-|  |      | - My Profile         |
-| **Tran Thi Cat Tuong**  |  22127444   | - Contact         |
-|  |      | - Category Management         |
+Group ID: 07
 
-\newpage
+| Member Name        | Student ID | Assigned Features          | Status      |
+|:-------------------------|:-----------|:---------------------------|:------|
+| Cao Uyển Nhi       | 22127310   | - SignUp                   | Done |
+|                    |            | - Checkout                 | Done |
+| Lưu Thanh Thuý     | 22127410   | - SignIn                   | Done |
+|                    |            | - User Management          | Done |
+| Nguyễn Phước Minh Trí      | 22127424   | - Feature 1                | Done |
+|                    |            | - Feature 2                | Done |
+| Võ Lê Việt Tú      | 22127435   | - MyProfile                | Done |
+|                    |            | - Order Management                | Done |
+| Trần Thị Cát Tường | 22127444   | - Contact                  | Done |
+|                    |            | - Category Management      | Done |
+
+\pagebreak

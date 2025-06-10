@@ -1,53 +1,52 @@
----
-# Document Metadata
-title: "HOMEWORK 2"
-subtitle: "Domain Testing"
-lang: "en"
-abstract: |
-  .
+title: "Software Testing Project Report"
 
-# Author information
-# author:
-#   - name: "Nguyễn Văn A"
-#     affiliation: "Nhóm 1"
-#     email: "19120001@student.hcmus.edu.vn"
+author:
+  - name: "Trần Thị Cát Tường"
+    id: "22127444"
+    class: "22KTPM3"
+    email: "ttctuong22@clc.fitus.edu.vn"
 
+supervisor:
+  - name: "Trần Duy Hoàng"
+    title: "Teacher "
+  - name: "Hồ Tuấn Thanh"
+    title: "Teacher"
+  - name: "Trương Phước Lộc"
+    title: "Teacher"
 
-# Team information
-team: "Group 7"
-class: "Software Testing - CSC13003"
-department: "Faculty of Information Technology"
-university: "university of Sciences - Ho Chi Minh City"
+institute: "University of Science - VNUHCM"
+faculty: "Faculty of Information Technology"
+logo: "./title/logo.png"
 
-# Document formatting
-geometry: "margin=1in"
-mainfont: "Times New Roman"
-fontsize: 12pt
-linestretch: 1.5
-papersize: a4
-# toc: true
-toc-depth: 3
+course: "Software Testing"
+subject: "HW2 - Domain Testing"
+
+# Date formats
+date: \today
+date_vi: \today
+date_en: \today
+
+# Language selection
+langvi: false
+langen: true
+
+# Document settings
 numbersections: true
-reference-section-title: "Report"
-urlcolor: blue
-toccolor: red
-nocite: '@*'
-# Citation and bibliography
-# bibliography: references.bib
-# csl: ieee.csl
-link-citations: true
+secnumdepth: 3  # Number H1, H2, and H3 headings (1=H1 only, 2=H1&H2, etc.)
 
-# Additional parameters for PDF output
-header-includes: |
-  \usepackage{fancyhdr}
-  \pagestyle{fancy}
-  \fancyhead[LE,RO]{\thepage}
-  \fancyhead[RE,LO]{HW2 - Domain Testing}
-  \fancyfoot[CE,CO]{Group 7}
----
+# Table of Contents settings
+toc: true  # Add table of contents
+toc-depth: 3  # Include H1-H3 in TOC
+toc-title: "Table of Contents"  # Custom title for TOC
+toc-newpage: true  # Start TOC on a new page
+toc-afterclear: true  # Add a page break after TOC
 
-\pagebreak
+# Section formatting (uncomment and modify to customize)
+# section-format: |
+#   \titleformat{\chapter}[display]{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+#   \titleformat{\section}{\normalfont\Large\bfseries\color{blue}}{\thesection}{1em}{}
+#   \titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+#   \titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
 
-\tableofcontents
-
-\pagebreak
+# Custom colors
+toccolor: "blue"  # Color for TOC links

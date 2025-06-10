@@ -1,37 +1,46 @@
-# Makefile for converting Markdown files to PDF and TEX using pandoc
+# CHANGE THIS TO YOUR REPORT NAME
+OUTPUT_NAME = 22127444_DomainTesting
 
-# Directories
-SRC_DIR = ./content
-BUILD_DIR = ./build
-RELEASE_DIR = ./release
+# Variables
+PANDOC = pandoc
+PDF_ENGINE = xelatex
+OUTPUT_DIR = ./release
+OUTPUT_PDF = $(OUTPUT_DIR)/$(OUTPUT_NAME).pdf
+OUTPUT_TEX = $(OUTPUT_DIR)/$(OUTPUT_NAME).tex
 
-# Source files
-MARKDOWN_FILES = $(wildcard $(SRC_DIR)/*.md)
-METADATA_FILE = $(SRC_DIR)/metadata.yaml
+# Font settings
+MAINFONT = "Latin Modern Roman"
+SANSFONT = "Latin Modern Sans"
+MONOFONT = "Latin Modern Mono"
 
-# Output files
-PDF_OUTPUT = $(RELEASE_DIR)/22127444_DomainTesting.pdf
-TEX_OUTPUT = $(RELEASE_DIR)/22127444_DomainTesting.tex
+# Find all .md files in the content directory
+MD_SOURCES = $(wildcard ./content/*.md)
+METADATA_FILE = ./content/metadata.yaml
+TEMPLATE_FILE = ./title/default_template.tex
 
-# Make sure that the build is always triggered by marking these targets as phony
-.PHONY: all pdf tex clean
+PANDOC_FLAGS = \
+	--metadata-file=$(METADATA_FILE) \
+	--template=$(TEMPLATE_FILE)
 
-# Default target: build PDF
-all: pdf
+PDF_FLAGS = $(PANDOC_FLAGS) --pdf-engine=$(PDF_ENGINE)
 
-# Build PDF from Markdown files
-pdf:
-	@mkdir -p $(RELEASE_DIR)
-	@echo "Converting Markdown to PDF..."
-	pandoc $(METADATA_FILE) $(MARKDOWN_FILES) -o $(PDF_OUTPUT) --pdf-engine=xelatex
+# Default target
+all: $(OUTPUT_PDF)
 
-# Build TEX from Markdown files
-tex:
-	@mkdir -p $(RELEASE_DIR)
-	@echo "Converting Markdown to TEX..."
-	pandoc $(METADATA_FILE) $(MARKDOWN_FILES) -o $(TEX_OUTPUT)
+# Rule to build the PDF
+$(OUTPUT_PDF): $(MD_SOURCES) $(METADATA_FILE) $(TEMPLATE_FILE)
+	@mkdir -p $(OUTPUT_DIR)
+	$(PANDOC) $(MD_SOURCES) $(PDF_FLAGS) -o $@
 
-# Clean build artifacts
+# Rule to build the TEX file
+$(OUTPUT_TEX): $(MD_SOURCES) $(METADATA_FILE) $(TEMPLATE_FILE)
+	@mkdir -p $(OUTPUT_DIR)
+	$(PANDOC) $(MD_SOURCES) $(PANDOC_FLAGS) -o $@
+
+# Target for generating TEX file
+tex: $(OUTPUT_TEX)
+
+# Phony target for cleaning up
+.PHONY: clean all tex
 clean:
-	@echo "Cleaning build artifacts..."
-	rm -f $(PDF_OUTPUT) $(TEX_OUTPUT)
+	rm -f $(OUTPUT_PDF) $(OUTPUT_TEX)
