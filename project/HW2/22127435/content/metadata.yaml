@@ -1,0 +1,51 @@
+---
+# Document Metadata
+title: "SOFTWARE TESTING - HOMEWORK 2"
+subtitle: "Domain testing"
+date: "9 June 2025"
+lang: "en"
+
+# Author information
+# Author information
+author: |
+  22127435 - Võ Lê Việt Tú
+
+  
+
+# Team information
+team: "Group 7"
+class: "CSC13003 – Software Testing - 22KTPM3"
+department: "Faculty of Information Technology"
+university: "University of Science - VNUHCM"
+
+# Document formatting
+geometry: "margin=1in"
+fontsize: 12pt
+linestretch: 1.5
+papersize: a4
+# toc: true
+toc-depth: 3
+numbersections: true
+reference-section-title: "Tài liệu tham khảo"
+urlcolor: blue
+toccolor: red
+nocite: '@*'
+# Citation and bibliography
+# bibliography: references.bib
+# csl: ieee.csl
+link-citations: true
+
+# Additional parameters for PDF output
+header-includes: |
+  \usepackage{fancyhdr}
+  \pagestyle{fancy}
+  \fancyhead[LE,RO]{Group 7}
+  \fancyhead[RE,LO]{Domain testing}
+  \fancyfoot[CE,CO]{\thepage}
+---
+
+\pagebreak
+
+\tableofcontents
+
+\pagebreak
