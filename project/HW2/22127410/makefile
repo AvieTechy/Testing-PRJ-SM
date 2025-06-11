@@ -25,7 +25,7 @@ PANDOC_FLAGS = \
 PDF_FLAGS = $(PANDOC_FLAGS) --pdf-engine=$(PDF_ENGINE)
 
 # Default target
-all: $(OUTPUT_PDF)
+all: clean $(OUTPUT_PDF)
 
 # Rule to build the PDF
 $(OUTPUT_PDF): $(MD_SOURCES) $(METADATA_FILE) $(TEMPLATE_FILE)
@@ -43,4 +43,4 @@ tex: $(OUTPUT_TEX)
 # Phony target for cleaning up
 .PHONY: clean all tex
 clean:
-	rm -f $(OUTPUT_PDF) $(OUTPUT_TEX)
+	@rm -f $(OUTPUT_PDF) $(OUTPUT_TEX)
