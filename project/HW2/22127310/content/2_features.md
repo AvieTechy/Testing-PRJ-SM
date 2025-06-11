@@ -7,7 +7,7 @@ This section outlines the first key feature of our system: the user sign-up proc
 The table below lists all the information fields a user needs to fill out during registration, along with the specific rules or constraints for each field. These constraints help ensure data quality and system security.
 
 | Field             | Constraints                                                                                                |
-|-------------------|------------------------------------------------------------------------------------------------------------|
+|-------------------|-----------------------------------------------------------------------------|
 | **First Name**    | Must not be empty, can have up to 50 characters. Emojis or special symbols that are not standard characters are not allowed. |
 | **Last Name**     | Must not be empty, can have up to 50 characters. Emojis or special symbols that are not standard characters are not allowed. |
 | **Email**         | Needs to be a valid email address format (e.g., user@example.com). Each email must be unique in the system. It should not contain newline characters or spaces at the beginning or end. |
@@ -79,7 +79,7 @@ This section describes the second major feature: the product checkout process. S
 The table below details the information and selections a user must provide to complete a purchase. Defining these clearly is crucial for a smooth and error-free checkout experience.
 
 | Field                   | Constraints                                                                                                |
-|-------------------------|------------------------------------------------------------------------------------------------------------|
+|-------------------------|--------------------------------------------------------------------|
 | **Cart**                | The shopping cart must have at least one item. For each item, the quantity must be between 1 and 10 (inclusive). |
 | **Billing Address**     | Requires street, city, state, postal code, and country information.                                        |
 | **Payment Method**      | User can choose from: Cash on Delivery, Bank Transfer, Credit Card, Gift Card, or Buy Now Pay Later.        |
