@@ -226,7 +226,7 @@
 ### Inputs
 
 - **Status Dropdown**:
-  - A predefined, non-editable list of options (e.g., COMPLETED, ON_HOLD, PENDING, SHIPPED, CANCELLED).
+  - A predefined, non-editable list of options.
   - User must select an option from the list.
 
 - **Update Status Button**:
@@ -238,7 +238,7 @@
 ### Equivalence Partitioning
 
 - **Valid**:
-  - Changing the status from its current value to a different valid value (e.g., "PENDING" → "SHIPPED").
+  - Changing the status from its current value to a different valid value.
   - Clicking "Update Status" without changing the value (e.g., current status is "COMPLETED", select "COMPLETED" again and update).
 
 - **Invalid**:
