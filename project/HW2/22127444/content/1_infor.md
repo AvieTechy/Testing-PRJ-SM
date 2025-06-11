@@ -8,8 +8,8 @@ Group ID: 07
 |                    |            | - Checkout                 | Done |
 | Lưu Thanh Thuý     | 22127410   | - SignIn                   | Done |
 |                    |            | - User Management          | Done |
-| Nguyễn Phước Minh Trí      | 22127424   | - Feature 1                | Done |
-|                    |            | - Feature 2                | Done |
+| Nguyễn Phước Minh Trí      | 22127424   | - Catalog                | Done |
+|                    |            | - Categories                | Done |
 | Võ Lê Việt Tú      | 22127435   | - MyProfile                | Done |
 |                    |            | - Order Management                | Done |
 | Trần Thị Cát Tường | 22127444   | - Contact                  | Done |

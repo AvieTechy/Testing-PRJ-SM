@@ -49,4 +49,4 @@ toc-afterclear: true  # Add a page break after TOC
 #   \titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
 
 # Custom colors
-toccolor: "blue"  # Color for TOC links
+toccolor: "red"  # Color for TOC links

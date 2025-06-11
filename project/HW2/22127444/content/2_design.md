@@ -11,7 +11,7 @@ The Contact form includes the following fields, with variations depending on use
   - **Message**: required textarea, must be between 50 and 250 characters.
   - **Attachment**: optional, only `.txt`, `.pdf`, or `.jpg` files allowed, size $\leq$ 500KB.
 
-![Contact function interface for user](images/feature1_user.png){ height=280px }
+![Contact function interface for user](images/feature1_user.png){ height=300px }
 
 - **If the user is a guest (not logged in):**
   - **First Name**: required text input, max length 120 characters.
@@ -21,7 +21,9 @@ The Contact form includes the following fields, with variations depending on use
   - **Message**: required textarea, must be between 50 and 250 characters.
   - **Attachment**: optional, only `.txt`, `.pdf`, or `.jpg` files allowed, size $\leq$ 500KB.
 
-![Contact function interface for guest](images/feature1_guest.png){ height=280px }
+![Contact function interface for guest](images/feature1_guest.png){ height=300px }
+
+\pagebreak
 
 ### Equivalence Partitioning (EP)
 
@@ -53,7 +55,7 @@ Category Management allows admin to perform the following operations, all constr
 
 1. **Add Category**
 
-![Add category function interface for admin](images/feature2_add.png){ height=280px }
+![Add category function interface for admin](images/feature2_add.png){ height=300px }
 
 - **Parent Id** (Dropdown):
   - Optional.
@@ -70,16 +72,18 @@ Category Management allows admin to perform the following operations, all constr
   - Must be lowercase, URL-safe (hyphens instead of spaces).
   - Must be unique (no duplicate slugs allowed in the database).
 
+\pagebreak
+
 2. **Edit Category**
 
-![Edit category function interface for admin](images/feature2_edit.png){ height=280px }
+![Edit category function interface for admin](images/feature2_edit.png){ height=300px }
 
 - Same input rules as **Add**.
 - Cannot change to have itself as its own parent.
 
 3. **Delete Category**
 
-![Delete category function interface for admin](images/feature2_delete.png){ height=280px }
+![Delete category function interface for admin](images/feature2_delete.png){ height=300px }
 
 - Allowed only if:
   - The category is not currently set as `Parent Id` of other categories or is having products.
@@ -87,7 +91,7 @@ Category Management allows admin to perform the following operations, all constr
 
 4. **Search Category**
 
-![Search category function interface for admin](images/feature2_search.png){ height=280px }
+![Search category function interface for admin](images/feature2_search.png){ height=300px }
 
 - Search by keyword in the **Name** field.
 - Case-insensitive and supports partial match.
