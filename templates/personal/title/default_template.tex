@@ -1,47 +1,23 @@
-% Pandoc LaTeX template for Vietnamese academic reports
+$passoptions.latex()$
 \documentclass[a4paper, 12pt]{article}
 
-% Language and font support
+%% Language and font encodings
 $if(langvi)$
-% Vietnamese support with XeLaTeX
-\usepackage{fontspec}
-\usepackage{polyglossia}
-\setmainlanguage{vietnamese}
-
-% Use fonts that support Vietnamese characters properly
-\setmainfont{Noto Serif}[
-  BoldFont = Noto Serif Bold,
-  ItalicFont = Noto Serif Italic,
-  BoldItalicFont = Noto Serif Bold Italic,
-  Path = ,
-  Extension = .ttf,
-  UprightFont = *-Regular
-]
-\setsansfont{Noto Sans}[
-  BoldFont = Noto Sans Bold,
-  ItalicFont = Noto Sans Italic,
-  BoldItalicFont = Noto Sans Bold Italic,
-  Path = ,
-  Extension = .ttf,
-  UprightFont = *-Regular
-]
-\setmonofont{Noto Sans Mono}[
-  BoldFont = Noto Sans Mono Bold,
-  Path = ,
-  Extension = .ttf,
-  UprightFont = *-Regular
-]
-
-% Fallback to DejaVu fonts if Noto is not available
-\newfontfamily\vietnamesefont{DejaVu Serif}[
-  BoldFont = DejaVu Serif Bold,
-  ItalicFont = DejaVu Serif Italic,
-  BoldItalicFont = DejaVu Serif Bold Italic
-]
+\usepackage[english,vietnamese]{babel}
 $else$
-% English support
-\usepackage[english]{babel}
-\usepackage{lmodern}
+\usepackage[vietnamese,english]{babel}
+$endif$
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Set font - Computer Modern
+\usepackage{lmodern}  % Latin Modern, an enhanced version of Computer Modern
+
+% Set main language based on metadata
+$if(langvi)$
+\selectlanguage{vietnamese}
+$else$
+\selectlanguage{english}
 $endif$
 
 %% Sets page size and margins
@@ -50,6 +26,7 @@ $endif$
 %% Useful packages
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \usepackage{xcolor}
 
 $--
@@ -82,38 +59,14 @@ $endif$
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-% Additional packages for tables and lists
-\usepackage{enumitem}
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{multirow}
-\usepackage{wrapfig}
-\usepackage{float}
-\usepackage{colortbl}
-\usepackage{caption}
-\usepackage{subcaption}
-
+$fonts.latex()$
+$font-settings.latex()$
+$common.latex()$
 $for(header-includes)$
 $header-includes$
 $endfor$
-
-% Hyperref package for links and bookmarks
-\usepackage{hyperref}
-% Hyperlink setup
-\hypersetup{
-    colorlinks=true,
-    linkcolor=black,
-    filecolor=magenta,
-    urlcolor=blue,
-    citecolor=blue,
-    pdfborder={0 0 0},
-    bookmarksnumbered=true,
-    bookmarksopen=true,
-    bookmarksopenlevel=1,
-    pdfstartview=Fit,
-    pdfpagemode=UseOutlines
-}
+$after-header-includes.latex()$
+$hypersetup.latex()$
 
 $if(title)$
 \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
@@ -247,7 +200,7 @@ $if(colorlinks)$
 $endif$
 
 % Set TOC depth
-\setcounter{tocdepth}{$if(toc-depth)$$toc-depth$$else$3$endif$}
+\setcounter{tocdepth}{$toc-depth$}
 
 % Add spacing before TOC
 \vspace*{1cm}
@@ -272,7 +225,6 @@ $if(lot)$
 \listoftables
 $endif$
 $if(linestretch)$
-\usepackage{setspace}
 \setstretch{$linestretch$}
 $endif$
 

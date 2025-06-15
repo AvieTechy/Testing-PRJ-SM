@@ -1,26 +1,49 @@
 # Personal Report Template
 
-> Đây là template được dùng có các version pandoc lớn hơn 2.0!
-
 ## Cài đặt
 
-Đảm bảo trong máy của bạn có `pandoc` và version `latex`. Nếu đã cài đặt từ trước thì có thể bỏ qua bước này.
+Đảm bảo máy của bạn đã cài đặt `pandoc` và `LaTeX`.
 
 ### 1. Cài đặt Pandoc
+
+**macOS (sử dụng Homebrew):**
+```bash
+brew install pandoc
+```
+
+**Ubuntu:**
 ```bash
 sudo apt update
 sudo apt install pandoc
 ```
 
 ### 2. Cài đặt LaTeX
+
+**macOS:**
+Cài đặt MacTeX, bao gồm `pdflatex` và các gói hỗ trợ tiếng Việt.
+Truy cập [MacTeX](https://www.tug.org/mactex/) để tải về và cài đặt.
+
+**Ubuntu:**
 ```bash
+sudo apt update
 sudo apt install texlive-full
 ```
+Gói `texlive-full` thường bao gồm hỗ trợ tiếng Việt. Nếu gặp lỗi font, bạn có thể cần cài đặt thêm `texlive-lang-vietnamese`.
 
-### 3. Cài đặt fonts tiếng Việt
+
+## 3. Cài đặt gói babel-vietnamese
+**macOS (sử dụng MacTeX):**
 ```bash
-sudo apt install fonts-noto fonts-dejavu fonts-liberation
+sudo tlmgr update --self
+sudo tlmgr install babel-vietnamese
 ```
+
+**Ubuntu (sử dụng TeX Live):**
+```bash
+sudo tlmgr update --self
+sudo tlmgr install babel-vietnamese
+```
+Nếu `tlmgr` không được tìm thấy, đảm bảo rằng TeX Live đã được cài đặt đúng cách và đường dẫn đến các tệp thực thi của TeX Live đã được thêm vào `PATH` của hệ thống.
 
 ## Sử dụng
 
@@ -76,17 +99,4 @@ logo: "title/logo.png"
 langvi: true
 numbersections: true
 toc: true
-```
-
-## Khắc phục lỗi
-
-### Lỗi font tiếng Việt
-```bash
-sudo apt install fonts-noto-cjk
-fc-cache -fv
-```
-
-### Lỗi thiếu package LaTeX
-```bash
-sudo apt install texlive-latex-extra texlive-fonts-extra
 ```
