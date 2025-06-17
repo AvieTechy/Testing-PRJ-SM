@@ -1,0 +1,164 @@
+% Minimalist Technical Cover Page Template for Pandoc
+% Compatible with Pandoc's LaTeX engine
+
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+
+% Font settings
+$if(fontfamily)$
+\usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
+$endif$
+
+% Use unicode characters
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e}
+\usepackage{fontspec}
+
+% Math packages for symbols (including checkboxes)
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Graphics and colors
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\definecolor{accent}{RGB}{70, 130, 180}  % Light blue color (Steel Blue)
+\definecolor{lightgray}{RGB}{240, 240, 240}
+
+% Tables and layout
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{longtable}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+
+% Set table spacing
+\renewcommand{\arraystretch}{1.4}
+\newcommand{\rounded}[1]{\textbf{\textcolor{white}{#1}}}
+
+% Custom title formatting
+\newcommand{\customtitle}[1]{\begin{center}\Large\bfseries\color{accent}#1\end{center}}
+\newcommand{\customauthor}[1]{\begin{center}\large #1\end{center}}
+\newcommand{\customdate}[1]{\begin{center}\large #1\end{center}}
+
+% Better table handling
+\usepackage{float}
+\floatstyle{ruled}
+\restylefloat{table}
+
+% Fix for longtable
+\usepackage{etoolbox}
+\AtBeginEnvironment{longtable}{\small\renewcommand{\arraystretch}{1.2}}
+
+% Prevent vertical stretching of content
+\raggedbottom
+
+% Better page breaking
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+
+% Better control for pagebreak
+\usepackage{needspace}
+\newcommand{\betterbreak}{\needspace{5\baselineskip}\pagebreak}
+
+% Headers and footers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{$title$}
+\lhead{$document_name$}
+\cfoot{\thepage}
+
+% Set up hyperlinks
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accent,
+    filecolor=accent,
+    urlcolor=accent,
+    citecolor=accent,
+    pdftitle={$title$},
+    pdfauthor={$author$},
+    pdfsubject={$subject$},
+    pdfkeywords={$keywords$}
+}
+
+\begin{document}
+
+% Title page
+\begin{titlepage}
+\begin{center}
+
+% Institution
+{\Large\textsc{Vietnam National University - Ho Chi Minh City}}\\[0.2cm]
+{\Large\textsc{University of Science}}\\[0.2cm]
+{\Large\textsc{Faculty of Information Technology}}\\[1cm]
+
+% Logo
+\includegraphics[width=5.5cm]{./title/logo.png}\\[0cm]
+
+% Document Name (if provided)
+$if(document_name)$
+{\Large\bfseries $document_name$}\\[0.7cm]
+$endif$
+
+% Title
+\rule{\linewidth}{0.5mm}\\[0.6cm]
+{\huge\bfseries\color{accent} $title$}\\[0.3cm]
+\rule{\linewidth}{0.5mm}\\[0.6cm]
+
+% Team members
+\begin{minipage}{\textwidth}
+\begin{center}
+\large\textbf{Team Members}\\[0.3cm]
+
+\setlength{\arrayrulewidth}{0.8pt}
+\setlength{\doublerulesep}{2pt}
+\renewcommand{\arraystretch}{1.8}
+
+\begin{tabular}{@{}p{4.5cm}@{}p{3cm}@{}p{5cm}@{}}
+\multicolumn{1}{c}{\cellcolor{accent}\rounded{Name}} & \multicolumn{1}{c}{\cellcolor{accent}\rounded{ID}} & \multicolumn{1}{c}{\cellcolor{accent}\rounded{Email}} \\
+\hline
+$for(team_members)$
+\multicolumn{1}{c}{$team_members.name$} & \multicolumn{1}{c}{$team_members.id$} & \multicolumn{1}{c}{$team_members.email$} \\
+\hline
+$endfor$
+\end{tabular}
+\end{center}
+\end{minipage}\\[0.8cm]
+
+% Supervisors
+\begin{minipage}{\textwidth}
+\begin{center}
+\large\textbf{Supervisors}\\[0.3cm]
+
+\setlength{\arrayrulewidth}{0.8pt}
+\setlength{\doublerulesep}{2pt}
+\renewcommand{\arraystretch}{1.8}
+
+\begin{tabular}{@{}p{9cm}@{}}
+\multicolumn{1}{c}{\cellcolor{accent}\rounded{Name}} \\
+\hline
+$for(supervisors)$
+\multicolumn{1}{c}{$supervisors$} \\
+\hline
+$endfor$
+\end{tabular}
+\end{center}
+\end{minipage}\\[0.8cm]
+
+% Date
+{\large $date$}
+
+\end{center}
+\end{titlepage}
+
+% Table formatting for content pages
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Rest of the document
+$body$
+
+\end{document}
