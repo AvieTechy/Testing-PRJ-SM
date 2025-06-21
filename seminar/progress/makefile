@@ -8,8 +8,9 @@ PANDOC = pandoc
 PDF_ENGINE = xelatex
 TEMPLATE_FILE = ./title/template.tex
 
-# Find all .md files in the content directory
-MD_SOURCES = $(wildcard ./content/*.md)
+# Find all markdown source files in the content directory
+MD_SOURCES = $(sort $(wildcard ./content/*.md))
+
 
 # Check if there's a metadata file
 METADATA_FILE = $(wildcard ./content/metadata.yaml)
@@ -27,7 +28,13 @@ PANDOC_FLAGS = \
 	--variable fontsize=11pt \
 	--variable geometry:margin=1in \
 	--variable links-as-notes=true \
-	--variable colorlinks=true
+	--variable colorlinks=true \
+	--variable documentclass=report \
+	--extract-media=. \
+	--resource-path=.:./content:./content/images:./images:../images \
+	--from=markdown+implicit_figures+link_attributes+raw_tex \
+	--standalone \
+	--verbose
 
 # Default target
 all: clean $(OUTPUT_PDF)
