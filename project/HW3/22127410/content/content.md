@@ -71,6 +71,8 @@ Before detailing each field, it's important to understand the overall generation
 | `created_at` | DateTime | Required, Valid timestamp sooner than current date | "2022-04-15 18:27:31", "2023-11-02 09:15:43", "2024-06-30 14:22:08" |
 | `updated_at` | DateTime | Required, later than `created_at`, sooner than (now + 2 years) | "2025-01-22 09:15:43", "2024-07-15 18:27:31", "2023-08-17 14:58:22" |
 
+![brands](images/image.png){width=450px}
+
 
 ## `categories` Table Fields
 
@@ -83,6 +85,7 @@ Before detailing each field, it's important to understand the overall generation
 | `created_at` | DateTime | Required, Valid timestamp, sooner than current date | "2023-08-17 07:00:28", "2024-05-24 03:55:22", "2025-01-22 21:38:49" |
 | `updated_at` | DateTime | Required, later than `created_at`, sooner than (now + 1 year) | "2024-12-28 03:55:22", "2024-01-09 07:00:28", "2023-12-21 03:29:03" |
 
+![categories](images/image-1.png){width=450px}
 
 ## Generation Rules Implementation Details
 
@@ -297,8 +300,6 @@ The category generation process created a rich hierarchical structure mimicking 
    - Every child category references a valid parent_id
    - Parent categories created before their children
 
-</td>
-<td width="40%">
 
 ### Code Insights
 
@@ -368,9 +369,6 @@ Power Tools (id: 1)
 
 # Code Architecture and Implementation
 
-<table>
-<tr>
-<td width="50%">
 
 ## `generate_brands.py` Key Components
 
@@ -403,8 +401,6 @@ updated_at = created_at + timedelta(
               days=random.randint(0, 1000))
 ```
 
-</td>
-<td width="50%">
 
 ## `generate_categories.py` Key Components
 
@@ -434,68 +430,10 @@ for i in range(NUM_CHILD):  # Then children
     # Select parent and create child with relationship
 ```
 
-</td>
-</tr>
-</table>
+# Self-Evaluation (Data Generation)
 
-# Data Quality Analysis
-
-<table>
-<tr>
-<td width="50%">
-
-## Completeness and Volume
-
-- **Brands table**:
-  - **500** complete brand records created
-  - All fields populated with no missing values
-  - 100% compliance with required field constraints
-
-- **Categories table**:
-  - **500** complete category records created
-  - Hierarchical structure with 15 root + 485 children
-  - All fields populated with appropriate values
-
-</td>
-<td width="50%">
-
-## Data Integrity Metrics
-
-- **Referential Integrity**:
-  - All child categories reference valid parent IDs
-  - No orphaned records or circular references
-
-- **Temporal Consistency**:
-  - All `updated_at` timestamps ≥ corresponding `created_at`
-  - Timestamps follow logical business patterns
-
-- **Uniqueness**:
-  - 100% unique brand names and slugs
-  - 100% unique category names within same parent
-  - 100% unique slugs across all categories
-
-</td>
-</tr>
-</table>
-
-# Summary of Achievements
-
-<div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 5px solid #4caf50;">
-
-## Data Generation Success Metrics
-
-- **Volume Requirements**: Generated 500 records for each table, meeting the project specifications
-- **Data Quality**: Created realistic and varied data that mimics real-world e-commerce patterns
-- **Structural Integrity**: Maintained proper referential relationships between tables
-- **Domain Relevance**: All data is contextually appropriate for a tools/hardware e-commerce system
-- **Technical Implementation**: Used efficient algorithms with custom data sources for meaningful values
-
-## Key Innovations
-
-1. **Multi-strategy name generation** for brands using both library functions and custom templates
-2. **Hierarchical category structure** with meaningful relationships between product categories
-3. **Industry-specific terminology** incorporated in both brand and category naming
-4. **Realistic variation patterns** in category naming to mimic actual e-commerce taxonomies
-5. **Temporal logic** in created_at and updated_at dates to reflect realistic business operations
-
-</div>
+| **Criteria**                | **Self-Evaluation** | **Notes**                                                                 |
+|----------------------------|---------------------|---------------------------------------------------------------------------|
+| **2 Tables Selection**      | 1.0 / 1.0           | Selected two important tables: `brands` and `categories`.            |
+| **Sample Data**             | 2.0 / 2.0           | All data is meaningful, realistic, and aligned with UI/business context. |
+| **Data Generation Report**  | 1.0 / 1.0           | Report includes field rules, tools used, prompts, process, and samples.  |
