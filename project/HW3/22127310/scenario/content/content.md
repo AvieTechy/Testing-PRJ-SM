@@ -1,48 +1,118 @@
+# Group Information
+
+Group ID: 07
+
+| Member Name        | Student ID | Assigned Features          | Status      |
+|:-------------------------|:-----------|:---------------------------|:------|
+| Cao Uyển Nhi       | 22127310   | - SignUp                   | Done |
+|                    |            | - Checkout                 | Done |
+| Lưu Thanh Thuý     | 22127410   | - SignIn                   | Done |
+|                    |            | - User Management          | Done |
+| Nguyễn Phước Minh Trí      | 22127424   | - Catalog                | Done |
+|                    |            | - Categories                | Done |
+| Võ Lê Việt Tú      | 22127435   | - MyProfile                | Done |
+|                    |            | - Order Management                | Done |
+| Trần Thị Cát Tường | 22127444   | - Contact                  | Done |
+|                    |            | - Category Management      | Done |
+
+
 # Scenario Definition
 
-## Feature S1: Customer Registration
+## Feature 1: Customer Registration
 
 ### Description
 
-The Customer Registration feature allows new users to create an account by filling out a registration form. The system validates the provided information, checks for duplicate email and phone number entries, and stores the new account in the database if all checks pass.
+The **Customer Registration** feature enables new users to create an account by completing a registration form with required fields. The system ensures data integrity through client-side and server-side validation, checks for duplicate email addresses and phone numbers, and securely stores the account in the database upon successful validation. A success message is displayed to confirm account creation.
 
 The registration form includes the following required fields:
 
-- First Name
-- Last Name
-- Date of Birth
-- Address
-- Postcode
-- City
-- State
-- Country
-- Phone Number
-- Email Address
-- Password
+- First Name: User's given name.
+- Last Name: User's surname.
+- Date of Birth: User's birth date to verify age eligibility.
+- Address: User's street address.
+- Postcode: Postal code for the address (format varies by country).
+- City: City of residence.
+- State: State or region (where applicable).
+- Country: Country of residence.
+- Phone Number: Contact number for communication.
+- Email Address: Unique email for account identification.
+- Password: Secure password for account access.
 
 ### Basic Flow
 
-1. The user navigates to the Customer Registration page.
-2. The user fills in all required fields with valid values.
-3. The user clicks the “Register” button.
-4. The system performs client-side and server-side validation.
-5. The system checks whether the email address and phone number already exist in the database.
-6. If validation passes and there are no duplicates:
-   - The account is stored in the database.
-   - The system displays: **“Account created successfully.”**
+1. User Navigation: The user accesses the Customer Registration page via a web browser (e.g., through a "Sign Up" link on the homepage).
+2. Form Completion: The user enters valid data in all required fields above.
+3. Form Submission: The user clicks the “Register” button.
+4. Validation:  
+- Client-side: JavaScript checks for empty fields, invalid formats (e.g., email, phone, postcode), and password strength.
+- Server-side: The backend re-validates all inputs to prevent bypassing client-side checks.
+Duplicate Check: The system queries the database to ensure the email and phone number are unique.
+5. Account Creation:  
+- If all checks pass, the system hashes the password and stores the account in the database.
+- The system returns a success message: “Account created successfully.”
 
 ### Alternate Flows
+These alternate flows describe deviations from the basic flow due to invalid inputs, duplicates, or system errors.
 
-- 2.a. Required field is empty → Inline error shown; form submission is blocked.
-- 2.b. First or Last Name exceeds 120 characters → Error shown.
-- 2.c. Date of Birth indicates user is under 18 → Error: *"You must be at least 18 years old to register."*
-- 2.d. Postcode format is invalid → Inline error shown.
-- 2.e. Phone number is invalid → Error shown.
-- 2.f. Email address format is invalid → Error shown.
-- 2.g. Password is too weak (e.g., < 8 characters, lacks complexity) → Error shown.
-- 5.a. Email already exists → Error: *"Email address is already in use."*
-- 5.b. Phone number already exists → Error: *"Phone number is already in use."*
-- 6.a. System/database failure during storage → Error: *"Unable to create account. Please try again later."*
+**2.a. Required Field is Empty**
+
+- Condition: Any required field (e.g., First Name, Email) is left blank.
+- Action: Client-side validation highlights the empty field with an inline error (e.g., "This field is required") in red text below the input. The “Register” button may be disabled until all fields are filled.
+- Outcome: Form submission is blocked until the user corrects the issue.
+
+**2.b. First or Last Name Exceeds 120 Characters**
+
+- Condition: First Name or Last Name input exceeds 120 characters (e.g., a very long string).
+- Action: Client-side validation displays an error: "First Name must not exceed 120 characters" or "Last Name must not exceed 120 characters."
+- Outcome: Submission is blocked until the name is shortened.
+
+**2.c. Date of Birth Indicates User is Under 16**
+
+- Condition: The entered Date of Birth results in an age less than 18 (e.g., "2010-01-01" for a 15-year-old in 2025).
+- Action: Server-side validation calculates the age and displays: "You must be at least 18 years old to register."
+- Outcome: Submission is blocked. The user must correct the Date of Birth or abandon registration.
+
+**2.d. Postcode Format is Invalid**
+
+- Condition: The postcode does not match the expected format for the selected country (e.g., "ABCDE" for a US postcode expecting "12345").
+- Action: Client-side validation (using regex or a library like libphonenumber) shows an inline error: "Invalid postcode format."
+- Outcome: Submission is blocked until a valid postcode is entered.
+
+**2.e. Phone Number is Invalid**
+
+- Condition: The phone number is too short, contains letters, or does not match the country’s format (e.g., "123" or "abc-123-4567").
+- Action: Client-side and server-side validation display: "Invalid phone number format."
+- Outcome: Submission is blocked until a valid phone number is provided.
+
+**2.f. Email Address Format is Invalid**
+
+- Condition: The email lacks proper structure (e.g., "user@.com" or "user.example.com").
+- Action: Client-side validation shows: "Invalid email format."
+- Outcome: Submission is blocked until a valid email is entered.
+
+**2.g. Password is Too Weak**
+
+- Condition: Password does not meet complexity requirements (e.g., < 8 characters, no uppercase, no numbers, no special characters).
+- Action: Client-side validation displays: "Password must be at least 8 characters and include uppercase, lowercase, numbers, and special characters."
+- Outcome: Submission is blocked until a stronger password is provided.
+
+**5.a. Email Already Exists**
+
+- Condition: The entered email matches an existing record in the database (case-insensitive).
+- Action: Server-side check returns: "Email address is already in use."
+- Outcome: Submission is blocked. The user is prompted to use a different email or recover the existing account.
+
+**5.b. Phone Number Already Exists**
+
+- Condition: The entered phone number matches an existing record.
+- Action: Server-side check returns: "Phone number is already in use."
+- Outcome: Submission is blocked. The user must provide a unique phone number.
+
+**6.a. System/Database Failure During Storage**
+
+- Condition: A database error occurs (e.g., connection timeout, server crash).
+- Action: The system logs the error for debugging and displays: "Unable to create account. Please try again later."
+- Outcome: The user is prompted to retry. The system may send an alert to administrators for investigation.
 
 ### Scenario Table
 
@@ -70,35 +140,81 @@ The registration form includes the following required fields:
 | S1-20       | Database Save Failure                 | Backend error occurs → Error message shown.                                |
 
 
-## Feature S2: Checkout Process
+## Feature 2: Checkout Process
 
 ### Description
 
-The Checkout feature enables a logged-in user to complete a purchase. The system validates the shopping cart contents, shipping information, and payment details. If all information is valid, it processes the payment, updates inventory, sends a confirmation email, and displays a success message.
+The **Checkout** feature enables a logged-in user to complete a purchase. The system validates the shopping cart contents, shipping information, and payment details. If all information is valid, it processes the payment, updates inventory, sends a confirmation email, and displays a success message to the user.
+
+The checkout process includes the following key components:
+
+- Shopping Cart: A list of items the user intends to purchase, including quantities and total cost.
+- Shipping Information: Required fields such as Address, Postcode, City, State, Country, and Phone Number.
+- Payment Details: Selected payment method (e.g., Credit Card, PayPal) and secure payment data input.
+- Confirmation and Receipt: A final success screen and confirmation email after a successful transaction.
 
 ### Basic Flow
 
-1. The user (already logged in) navigates to the Checkout page.
-2. The user reviews their cart contents (items, quantities, total price).
-3. The user enters or confirms shipping information:
+1. User Navigation: The logged-in user navigates to the Checkout page.
+2. Cart Review: The user reviews their cart contents including item details, quantity, and total cost.
+3. Shipping Information: The user enters or confirms their shipping details:
    - Address, Postcode, City, State, Country, Phone Number
-4. The user selects a payment method (e.g., Credit Card, PayPal).
-5. The user clicks the “Confirm Order” button.
-6. The system processes the payment.
-7. The system updates the inventory based on the purchased items.
-8. The system sends a confirmation email to the user.
-9. The system displays: **“Order placed successfully.”**
+4. Payment Selection: The user selects a payment method such as Credit Card or PayPal.
+5. Order Submission: The user clicks the “Confirm Order” button.
+6. Payment Processing: The system processes the payment via a secure payment gateway.
+7. Inventory Update: The system updates inventory based on the items purchased.
+8. Confirmation Email: The system sends a confirmation email to the user’s registered email.
+9. Success Message: The system displays the message: “Order placed successfully.”
 
 ### Alternate Flows
 
-- 1.a. User is not logged in → Redirect to login with message: *"Please log in to proceed with checkout."*
-- 2.a. Cart is empty → Error: *"Your cart is empty. Add items to proceed."*
-- 3.a. Missing shipping information → Inline error; submission blocked.
-- 3.b. Invalid shipping information → Error shown immediately.
-- 4.a. No payment method selected → Error: *"Please select a payment method."*
-- 6.a. Payment fails (e.g., card declined) → Error: *"Payment failed. Please check your payment details."*
-- 7.a. Insufficient inventory → Error: *"One or more items are out of stock."*
-- 8.a. Email sending fails → Order is placed; system logs warning: *"Email confirmation could not be sent."*
+**1.a. User is Not Logged In**
+
+- Condition: The user is not logged in when accessing the checkout page.
+- Action: The system redirects the user to the login page with a message: "Please log in to proceed with checkout."
+- Outcome: User must log in to continue with checkout.
+
+**2.a. Cart is Empty**
+
+- Condition: The user's cart contains no items.
+- Action: The system displays an error message: "Your cart is empty. Add items to proceed."
+- Outcome: User cannot proceed until the cart has items.
+
+**3.a. Missing Shipping Information**
+
+- Condition: One or more required shipping fields are left blank.
+- Action: Inline error messages are displayed for each missing field. Submission is blocked.
+- Outcome: The user must complete all required fields.
+
+**3.b. Invalid Shipping Information**
+
+- Condition: One or more fields contain invalid data (e.g., invalid postcode format or phone number).
+- Action: Inline error message is displayed next to the invalid field.
+- Outcome: Submission is blocked until the information is corrected.
+
+**4.a. No Payment Method Selected**
+
+- Condition: The user does not select any payment method.
+- Action: The system displays the message: "Please select a payment method."
+- Outcome: User must choose a method to proceed.
+
+**6.a. Payment Fails**
+
+- Condition: The payment gateway returns an error (e.g., card declined, network failure).
+- Action: The system shows the error: "Payment failed. Please check your payment details."
+- Outcome: User can correct details and retry.
+
+**7.a. Insufficient Inventory**
+
+- Condition: One or more items in the cart are no longer in stock.
+- Action: The system displays the message: "One or more items are out of stock."
+- Outcome: User must adjust the cart before proceeding.
+
+**8.a. Confirmation Email Fails**
+
+- Condition: Email fails to send due to server error.
+- Action: The system logs the failure and displays a warning: "Email confirmation could not be sent."
+- Outcome: Order is still placed successfully, but user may not receive an email.
 
 ### Scenario Table
 
