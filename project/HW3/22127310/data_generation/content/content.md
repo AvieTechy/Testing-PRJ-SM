@@ -98,8 +98,9 @@ Before detailing each field, it's important to understand the overall generation
 | `created_at` | DateTime | Required, Valid timestamp |
 | `updated_at` | DateTime | Required, later than `created_at` |
 
-
 ![invoices](images/image.png){width=450px}
+
+\pagebreak
 
 ## `invoice_items` Table Fields
 
@@ -112,8 +113,6 @@ Before detailing each field, it's important to understand the overall generation
 | `quantity` | Integer | Required, Range: 1-10 |
 | `created_at` | DateTime | Required, Valid timestamp |
 | `updated_at` | DateTime | Required, later than `created_at` |
-
-\pagebreak
 
 ![invoice_items](images/image-1.png){width=450px}
 
