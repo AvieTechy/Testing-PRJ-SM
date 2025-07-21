@@ -1,0 +1,260 @@
+$passoptions.latex()$
+\documentclass[a4paper, 12pt]{article}
+
+%% Language and font encodings
+$if(langvi)$
+\usepackage[english,vietnamese]{babel}
+$else$
+\usepackage[vietnamese,english]{babel}
+$endif$
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Set font - Computer Modern
+\usepackage{lmodern}  % Latin Modern, an enhanced version of Computer Modern
+
+% Set main language based on metadata
+$if(langvi)$
+\selectlanguage{vietnamese}
+$else$
+\selectlanguage{english}
+$endif$
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{xcolor}
+
+$--
+$-- section numbering
+$--
+$if(numbersections)$
+\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
+
+% Basic section formatting without using titlesec
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\normalfont\Large\bfseries}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+                                   {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                   {1.5ex \@plus .2ex}%
+                                   {\normalfont\large\bfseries}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+                                   {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                   {1.5ex \@plus .2ex}%
+                                   {\normalfont\normalsize\bfseries}}
+\makeatother
+
+$else$
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+$endif$
+
+% Define tightlist for pandoc compatibility
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+$fonts.latex()$
+$font-settings.latex()$
+$common.latex()$
+$for(header-includes)$
+$header-includes$
+$endfor$
+$after-header-includes.latex()$
+$hypersetup.latex()$
+
+$if(title)$
+\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+$endif$
+$if(subtitle)$
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{$subtitle$}
+$endif$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+\date{$date$}
+
+\begin{document}
+% Set page numbering for initial pages
+\pagenumbering{roman}
+
+% Input custom title page
+% \input{title/title.tex}
+
+% Custom title page directly in template
+\begin{titlepage}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines
+
+%----------------------------------------------------------------------------------------
+%	LOGO SECTION
+%----------------------------------------------------------------------------------------
+\centering
+$if(logo)$
+\includegraphics[width=8cm]{$logo$}\\[1cm] % Logo path from metadata
+$else$
+\includegraphics[width=8cm]{logo.png}\\[1cm] % Default logo path
+$endif$
+
+%----------------------------------------------------------------------------------------
+\center % Center everything on the page
+
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+$if(institute)$
+\textsc{\LARGE $institute$}\\[0.5cm]
+$endif$
+$if(faculty)$
+\textsc{\Large $faculty$}\\[0.5cm]
+$endif$
+
+$if(course)$
+\textsc{\Large $course$}\\[0.5cm]
+$endif$
+$if(subject)$
+\textsc{\large $subject$}\\[0.5cm]
+$else$
+\textsc{\large Selected Topics in Software Engineering}\\[0.5cm]
+$endif$
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+\HRule \\[0.4cm]
+{\huge \bfseries $title$}\\[0.4cm] % Title
+$if(subtitle)$
+{\Large \bfseries $subtitle$}\\[0.4cm] % Subtitle
+$endif$
+\HRule \\[1.5cm]
+
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+$if(langvi)$
+\emph{Sinh viên thực hiện:}\\
+$else$
+\emph{Authors:}\\
+$endif$
+$for(author)$
+$author.name$ ($author.id$)\\
+$if(author.email)$$author.email$$endif$\\
+$endfor$
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+$if(langvi)$
+\emph{Giảng viên hướng dẫn:} \\
+$else$
+\emph{Supervisors:} \\
+$endif$
+$for(supervisor)$
+$supervisor.title$ $supervisor.name$ \\
+$endfor$
+\end{flushright}
+\end{minipage}\\[2cm]
+
+%----------------------------------------------------------------------------------------
+%	DATE SECTION
+%----------------------------------------------------------------------------------------
+$if(langvi)$
+{\selectlanguage{vietnamese}\large Thành phố Hồ Chí Minh, \today}\\[2cm] % Vietnamese date
+$else$
+{\selectlanguage{english}\large \today}\\[2cm] % English date
+$endif$
+
+\vfill % Fill the rest of the page with whitespace
+\end{titlepage}
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+$if(toc)$
+% Add a clear page before TOC if needed
+$if(toc-newpage)$
+\clearpage
+$endif$
+
+% Set TOC title
+$if(toc-title)$
+\renewcommand*\contentsname{$toc-title$}
+$endif$
+
+% Format TOC
+{
+$if(colorlinks)$
+\hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$blue$endif$}
+$endif$
+
+% Set TOC depth
+\setcounter{tocdepth}{$toc-depth$}
+
+% Add spacing before TOC
+\vspace*{1cm}
+
+% Generate Table of Contents
+\tableofcontents
+
+% Add spacing after TOC
+\vspace*{1cm}
+}
+
+% Add a clear page after TOC if needed
+$if(toc-afterclear)$
+\clearpage
+$endif$
+
+$endif$
+$if(lof)$
+\listoffigures
+$endif$
+$if(lot)$
+\listoftables
+$endif$
+$if(linestretch)$
+\setstretch{$linestretch$}
+$endif$
+
+% Switch to Arabic page numbering for main content
+\pagenumbering{arabic}
+
+$body$
+
+$if(nocite-ids)$
+\nocite{$for(nocite-ids)$$it$$sep$, $endfor$}
+$endif$
+$if(natbib)$
+$if(bibliography)$
+$if(biblio-title)$
+$if(has-chapters)$
+\renewcommand\bibname{$biblio-title$}
+$else$
+\renewcommand\refname{$biblio-title$}
+$endif$
+$endif$
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+
+$endif$
+$endif$
+$if(biblatex)$
+\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+
+$endif$
+$for(include-after)$
+$include-after$
+
+$endfor$
+\end{document}
