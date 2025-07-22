@@ -106,18 +106,27 @@ The following screenshots confirm the consistent rendering of the Homepage, incl
 
 ## Google Chrome on Windows 11
 
-![Chrome on Windows 11](./content/img/chrome1.png){width=84%}
-![Chrome on Windows 11](./content/img/chrome2.png){width=84%}
+![Chrome on Windows 11](./content/img/chrome1.png){width=500px height=300px}
+
+![Chrome on Windows 11](./content/img/chrome2.png){width=500px height=300px}
+
+\pagebreak
 
 ## Microsoft Edge on Windows 11
 
-![Edge on Windows 11](./content/img/edge1.png){width=84%}
-![Edge on Windows 11](./content/img/edge2.png){width=84%}
+![Edge on Windows 11](./content/img/edge1.png){width=500px height=300px}
+
+![Edge on Windows 11](./content/img/edge2.png){width=500px height=300px}
+
+\pagebreak
 
 ## Safari on macOS Sequoia (via BrowserStack)
 
-![Safari on Windows 11](./content/img/safari1.png){width=84%}
-![Safari on Windows 11](./content/img/safari2.png){width=84%}
+![Safari on Windows 11](./content/img/safari1.png){width=500px height=300px}
+
+![Safari on Windows 11](./content/img/safari2.png){width=500px height=300px}
+
+\pagebreak
 
 # Conclusion & Recommendation
 

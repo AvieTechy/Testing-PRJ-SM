@@ -4,10 +4,10 @@ Group ID: 07
 
 | Member Name        | Student ID | Assigned Tables          | Status      |
 |:-------------------------|:-----------|:---------------------------|:------|
-| Cao Uyển Nhi       | 22127310   | Registration Page                  | Done |
-| Lưu Thanh Thuý     | 22127410   | Checkout Page               | Done |
-| Nguyễn Phước Minh Trí      | 22127424   | Category Page                | Done |
-| Võ Lê Việt Tú      | 22127435   | Home Page              | Done |
+| Cao Uyển Nhi       | 22127310   | Registration                  | Done |
+| Lưu Thanh Thuý     | 22127410   | Checkout               | Done |
+| Nguyễn Phước Minh Trí      | 22127424   | Category                | Done |
+| Võ Lê Việt Tú      | 22127435   | Search & Filter              | Done |
 | Trần Thị Cát Tường | 22127444   | Category Management Page                 | Done |
 
 # Executive Summary
@@ -17,6 +17,10 @@ This report outlines the findings from a usability study of the search and filte
 # Introduction
 ## Background
 The interface under review is a product listing page (PLP) for an online tool store. A key component of this page is the left-hand sidebar, which provides users with tools to sort, search, and filter the product grid. The usability of this feature is critical for product discovery and directly impacts user success and conversion rates.
+
+![Screenshot of Homepage](./content/img/1.png){height=600px}
+
+\pagebreak
 
 ## Goals & Objectives
 
