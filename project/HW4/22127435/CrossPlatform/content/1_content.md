@@ -106,25 +106,49 @@ The following screenshots confirm the consistent rendering of the Homepage, incl
 
 ## Google Chrome on Windows 11
 
-![Chrome on Windows 11](./content/img/chrome1.png){width=500px height=300px}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\textwidth]{./content/img/chrome1.png}
+\caption{Homepage on Google Chrome (Windows 11)}
+\end{figure}
 
-![Chrome on Windows 11](./content/img/chrome2.png){width=500px height=300px}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\textwidth]{./content/img/chrome2.png}
+\caption{Homepage on Google Chrome (Windows 11)}
+\end{figure}
 
 \pagebreak
 
 ## Microsoft Edge on Windows 11
 
-![Edge on Windows 11](./content/img/edge1.png){width=500px height=300px}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\textwidth]{./content/img/edge1.png}
+\caption{Homepage on Microsoft Edge (Windows 11)}
+\end{figure}
 
-![Edge on Windows 11](./content/img/edge2.png){width=500px height=300px}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\textwidth]{./content/img/edge2.png}
+\caption{Homepage on Microsoft Edge (Windows 11)}
+\end{figure}
 
 \pagebreak
 
 ## Safari on macOS Sequoia (via BrowserStack)
 
-![Safari on Windows 11](./content/img/safari1.png){width=500px height=300px}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\textwidth]{./content/img/safari1.png}
+\caption{Homepage on Safari (MacOS Sequoia)}
+\end{figure}
 
-![Safari on Windows 11](./content/img/safari2.png){width=500px height=300px}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\textwidth]{./content/img/safari2.png}
+\caption{Homepage on Safari (MacOS Sequoia)}
+\end{figure}
 
 \pagebreak
 
