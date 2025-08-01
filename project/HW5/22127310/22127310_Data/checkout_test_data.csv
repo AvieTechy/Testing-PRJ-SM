@@ -1,0 +1,31 @@
+TestCaseID,Quantity,Street,City,Country,PaymentMethod,BankName,AccountName,AccountNumber,Expected,Title,State,Postcode
+TC_001,1,A,B,Austria,Cash on Delivery,,,,Checkout process completes successfully with order confirmation displayed,Checkout with valid cart (minimum quantity),TestState,12345
+TC_002,10,Test Street 98,Vienna,Austria,Cash on Delivery,,,,Checkout process completes successfully with order confirmation displayed,Update quantity to maximum (10) and checkout,TestState,12345
+TC_003,100,Test Street 98,Vienna,Austria,Cash on Delivery,,,,"Error message 'Quantity exceeds maximum' is displayed, checkout halted",Checkout with quantity above maximum,TestState,12345
+TC_004,0,Test Street 98,Vienna,Austria,Cash on Delivery,,,,Proceed to Checkout button is disabled and no further steps are allowed,Checkout with empty cart,TestState,12345
+TC_005,0,Test Street 98,Vienna,Austria,Cash on Delivery,,,,"Error message 'Quantity must be at least 1' is displayed, checkout halted",Invalid quantity (0) of item in cart,TestState,12345
+TC_006,-1,Test Street 98,Vienna,Austria,Cash on Delivery,,,,"Error message 'Quantity must be at least 1' is displayed, checkout halted",Checkout with negative quantity (-1),TestState,12345
+TC_007,abc,Test Street 98,Vienna,Austria,Cash on Delivery,,,,"Error message 'Quantity must be numeric' is displayed, checkout halted",Invalid quantity (non-numeric) of item in cart,TestState,12345
+TC_008,,Test Street 98,Vienna,Austria,Cash on Delivery,,,,"Error message 'Quantity must be numeric' is displayed, checkout halted",Item with empty quantity in cart,TestState,12345
+TC_009,1,Test Street 98,Vienna,Austria,Cash on Delivery,,,,"Cart is empty, Proceed to Checkout button is disabled",Remove item from cart,TestState,12345
+TC_010,1,,,Austria,Cash on Delivery,,,,"System redirects to Sign in page, message displayed: 'Please sign in to proceed'",Guest user attempts checkout without signing in,TestState,12345
+TC_011,1,Test Street 98,Vienna,Austria,Cash on Delivery,,,,Redirects directly to Billing Address step without sign-in prompt,Logged-in user skips sign in and proceeds to billing,TestState,12345
+TC_012,1,A,B,Austria,Cash on Delivery,,,,"Proceeds to Payment step, checkout completes successfully",Valid billing address with minimum inputs,TestState,12345
+TC_013,1,,Vienna,Austria,Cash on Delivery,,,,"Error message 'Address is required' is displayed, remains on Billing Address step",Address is empty (Billing Address step),TestState,12345
+TC_014,1,Test Street 98,,Austria,Cash on Delivery,,,,"Error message 'City is required' is displayed, remains on Billing Address step",City is empty (Billing Address step),TestState,12345
+TC_015,1,Test Street 98,Vienna,Austria,Cash on Delivery,,,,"Error message 'Postcode is required' is displayed, remains on Billing Address step",Postcode is empty (Billing Address step),TestState,
+TC_016,1,Test Street 98,Vienna,Austria,Cash on Delivery,,,,"Error message 'State is required' is displayed, remains on Billing Address step",State is empty (Billing Address step),,12345
+TC_017,1,Test Street 98,Vienna,,Cash on Delivery,,,,"Error message 'Country is required' is displayed, remains on Billing Address step",Country not selected,TestState,12345
+TC_018,1,Test Street 98,Vienna,Austria,Bank Transfer,Test Bank,Jane Doe,1234567890,Checkout process completes successfully with order confirmation displayed,Valid Bank Transfer,TestState,12345
+TC_019,1,Test Street 98,Vienna,Austria,Bank Transfer,,Jane Doe,1234567890,"Error message 'Bank Name is required' is displayed, remains on Payment step",Empty Bank Name,TestState,12345
+TC_020,1,Test Street 98,Vienna,Austria,Bank Transfer,Test Bank 123,Jane Doe,1234567890,"Error message 'Bank Name must contain only letters and spaces' is displayed, remains on Payment step",Bank Name with numbers,TestState,12345
+TC_021,1,Test Street 98,Vienna,Austria,Bank Transfer,Test Bank,Jane Doe,12345678,Checkout process completes successfully with order confirmation displayed,Minimum Account Number,TestState,12345
+TC_022,1,Test Street 98,Vienna,Austria,Bank Transfer,Test Bank,Jane Doe,123abc,"Error message 'Account Number must be numeric' is displayed, remains on Payment step",Account Number with letters,TestState,12345
+TC_023,1,Test Street 98,Vienna,Austria,Bank Transfer,Test Bank,Jane Doe,1234567,"Error message 'Account Number too short' is displayed, remains on Payment step",Just below minimum Account Number,TestState,12345
+TC_024,1,Test Street 98,Vienna,Austria,Bank Transfer,Test Bank,Jane Doe,123456789012345678901234,Payment successful,Maximum Account Number,TestState,12345
+TC_025,1,Test Street 98,Vienna,Austria,Bank Transfer,Test Bank,Jane Doe,1234567890123456789012345,"Error message 'Account Number too short' is displayed, remains on Payment step",Account Number with (Maximum+1) number digit,TestState,12345
+TC_026,1,Test Street 98,Vienna,Austria,,,,Proceed to Confirm button is disable,,No payment method selected,TestState,12345
+TC_027,1,Test Street 98,Vienna,Austria,Credit Card,,,,"Display input fields for Credit Card info (card number, date, …)",Select Credit Card in payment method,TestState,12345
+TC_028,1,Test Street 98,Vienna,Austria,Gift Card,,,,Confirm button enable,Select Cash on Delivery in payment method,TestState,12345
+TC_029,1,Test Street 98,Vienna,Austria,Gift Card,,,,"Display input fields for Gift Card info (code, valid date, …)",Select Gift Card in payment method,TestState,12345
+TC_030,1,Test Street 98,Vienna,Austria,Buy Now Pay Later,,,,"Display input fields for Buy Now Pay Later info (card, valid date, …)",Select Buy Now Pay Later in payment method,TestState,12345

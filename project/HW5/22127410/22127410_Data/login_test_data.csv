@@ -1,0 +1,107 @@
+Feature ID,Test case ID,Title,Preconditions,Inputs,Test Steps,Expected Result,Actual Result,Status,Type,Tester,Tested Date,Remark
+UC01,TC_001,Valid user login,User account is already registered with valid email and password.,"Email: customer@practicesoftwaretesting.com
+Password: welcome01","1. Open login page
+2. Enter valid user email and password
+3. Click Login",User dashboard loaded,User dashboard loaded,Pass,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_002,Valid admin login,Admin account is already registered and active in the system.,"Email: admin@practicesoftwaretesting.com
+Password: welcome01","1. Open login page
+2. Enter valid admin email and password
+3. Click Login",Admin dashboard loaded,Admin dashboard loaded,Pass,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_003,Invalid email format,The login form is loaded and ready for input.,"Email: customerpracticesoftwaretesting.com
+Password: welcome01","1. Open login page
+2. Enter invalid email and valid password
+3. Click Login",Error message: Invalid email format,Error message: Invalid email or  password,Fail,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_004,Empty email,The login form is loaded and ready for input.,"Email: -
+Password: welcome01","1. Open login page
+2. Enter only valid password
+3. Click Login",Error message: Email is required,Error message: Invalid email or  password,Fail,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_005,Empty password,The login form is loaded and ready for input.,"Email: customer@practicesoftwaretesting.com
+Password: -","1. Open login page
+2. Enter only valid email
+3. Click Login",Error message: Password is required,Error message: Invalid email or  password,Fail,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_006,Incorrect password,An active user account with a known valid email exists in the system's database.,"Email: customer@practicesoftwaretesting.com
+Password: welcome02","1. Open login page
+2. Enter wrong password
+3. Click Login",Error message: Invalid password,Error message: Invalid email or  password,Fail,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_007,Unregistered email,The email address used for the test does not exist in the system's user database.,"Email: customer12@practicesoftwaretesting.com
+Password: welcome01","1. Open login page
+2. Enter unregistered email
+3. Click Login",Error message: Invalid email or password,Error message: Invalid email or password,Pass,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_008,HTML injection in email,The login form is loaded and ready for input.,Email: <script>alert(1)</script>,"1. Open login page
+2. Enter email (with HTML)",Error message: Invalid email format,Error message: Invalid email or  password,Fail,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_009,HTML injection in password,The login form is loaded and ready for input.,Password: <script>alert(1)</script>,"1. Open login page
+2. Enter password (with HTML)",Error message: Invalid password,Error message: Invalid email or  password,Fail,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_010,SQL injection in email,The login form is loaded and ready for input.,"Email: ' OR 1=1 --'
+Password: welcom01","1. Open login page
+2. Attempt SQL injection in email
+3. Click Login",Error message: Invalid email or password,Error message: Invalid email or password,Pass,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_011,SQL injection in password,The login form is loaded and ready for input.,"Email: customer@practicesoftwaretesting.com
+Password: ' OR 1=1 --'","1. Open login page
+2. Attempt SQL injection in password
+3. Click Login",Error message: Invalid email or password,Error message: Invalid email or password,Pass,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_012,XSS payload in email,The login form is loaded and ready for input.,"Email: ""<img src=x onerror=alert(1)>""",Input XSS string in email field and submit,Error message: Invalid email or password,Error message: Invalid email or password,Pass,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_013,XSS payload in password,The login form is loaded and ready for input.,"Password: ""<img src=x onerror=alert(1)>""",Input XSS string in password field and submit,Error message: Invalid email or password,Error message: Invalid email or password,Pass,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_014,Very long email,The login form is loaded and ready for input.,"Email: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@practicesoftwaretesting.com
+Password: welcome01","1. Open login page
+2. Enter very long password
+3. Click Login",Error message: Email exceeds limit,Error message: Invalid email or password,Fail,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_015,Very long password,The login form is loaded and ready for input.,"Email: customer@practicesoftwaretesting.com
+Password: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","1. Open login page
+2. Enter very long password
+3. Click Login",Error message: Password length is invalid,Error message: Invalid email or password,Fail,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_016,Valid email with uppercase,User account is already registered with valid email and password.,"Email: CUSTOMER@PRACTICEOFSOFTWARETESTING.COM
+Password: welcome01","1. Open login page
+2. Enter valid user email (with uppercase) and password
+3. Click Login",User dashboard loaded,Error message: Invalid email or password,Fail,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_017,Email with leading/trailing spaces,User account is already registered with valid email and password.,"Email: customer@practiceofsoftwaretesting.com  (end with spaces)
+Password: welcome01","1. Open login page
+2. Enter email with leading/trailing spaces
+3. Enter correct password
+4. Click Login",User dashboard loaded,User dashboard loaded,Pass,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_018,Password with spaces,User account is already registered with valid email and password.,"Email: customer@practiceofsoftwaretesting.com
+Password: welcome01  ","1. Open login page
+2. Enter valid email
+3. Enter password with spaces
+4. Click Login",Error message: Password invalid,Error message: Invalid email or password,Fail,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_019,Email with newline,User account is already registered with valid email and password.,"Email: customer\n@practiceofsoftwaretesting.com
+Password: welcome01","1. Open login page
+2. Enter email with newline
+3. Enter valid password
+4. Click Login",Error message:  Email invalid format,Error message: Invalid email or password,Fail,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_020,Password with newline,User account is already registered with valid email and password.,"Email: customer@practiceofsoftwaretesting.com
+Password: welcome\n01","1. Open login page
+2. Enter valid email
+3. Enter password with newline
+4. Click Login",Error message: Password invalid,Error message: Invalid email or password,Fail,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_021,Email in Unicode,User is on the Sign In page,"Email: cüstomer@practicesoftwaretesting.com
+Password: welcome01","1. Enter Unicode email
+2. Enter valid password
+3. Click Login",Error message:  Email invalid format,Error message: Invalid email or password,Fail,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_022,Password in Unicode,User is on the Sign In page,"Email: customer@practicesoftwaretesting.com
+Password: welcüme01","1. Enter valid email
+2. Enter Unicode password
+3. Click Login",Error message: Password invalid,Error message: Invalid email or password,Fail,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_023,"Login fails three times, user locked",User account is already registered with valid email and password.,"Email: customer@practicesoftwaretesting.com
+Password: welcome",Attempt login with wrong password 3 times,User is locked after 3rd attempt,User dashboard loaded,Fail,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_024,"Login fails >3 times, still locked",User already locked after 3 failed attempts,"Email: customer@practicesoftwaretesting.com
+Password: welcome","1. Enter valid email
+2. Enter wrong password again
+3. Click Login",Error message: “User is locked - Login not possible!”,User dashboard loaded,Fail,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_025,Login succeeds after 2 fails,User failed login 2 times,"Email: customer@practicesoftwaretesting.com
+Password: welcome01","1. Fail login 2 times
+2. Try with correct password",User dashboard loaded,User dashboard loaded,Pass,EP,Luu Thanh Thuy,2025-06-03,
+UC01,TC_026,2 fails login then success,User account is already registered with valid email and password.,"Email: customer@practicesoftwaretesting.com
+Password: welcome (x2), them welcome01","1. Fail login twice
+2. Enter correct credentials",User dashboard loaded,User dashboard loaded,Pass,BVA,Luu Thanh Thuy,2025-06-03,
+UC01,TC_027,Exactly 3 fails login → lock,User account is already registered with valid email and password.,"Email: customer@practicesoftwaretesting.com
+Password: welcome (x3)",Attempt login with wrong password 3 times,User is locked after 3rd attempt,User dashboard loaded,Fail,BVA,Luu Thanh Thuy,2025-06-03,
+UC01,TC_028,4th attempt after lock,User already locked after 3 failed attempts,"Email: customer@practicesoftwaretesting.com
+Password: welcome01",Try login after lock with correct password,Error message: “User is locked - Login not possible!”,User dashboard loaded,Fail,BVA,Luu Thanh Thuy,2025-06-03,
+UC01,TC_029,Password = 8 characters (min),User account is already registered with valid email and password.,Password: 8-char valid password,"1. Enter credentials
+2. Login",User dashboard loaded,User dashboard loaded,Pass,BVA,Luu Thanh Thuy,2025-06-03,
+UC01,TC_030,Password = 7 characters (below min),User is on the Sign In page,Password: 7-char password,"1. Enter credentials
+2. Login",Error message: Password too short,Error message: Invalid email or password,Fail,BVA,Luu Thanh Thuy,2025-06-03,
+UC01,TC_031,Password = 30 characters (Max),User account is already registered with valid email and password.,Password: 30-char valid password,"1. Enter credentials
+2. Login",User dashboard loaded,User dashboard loaded,Pass,BVA,Luu Thanh Thuy,2025-06-03,
+UC01,TC_032,Password = 31 characters (Above Max),User is on the Sign In page,Password: 31-char password,"1. Enter credentials
+2. Login",Error message: Password too long,Error message: Invalid email or password,Fail,BVA,Luu Thanh Thuy,2025-06-03,

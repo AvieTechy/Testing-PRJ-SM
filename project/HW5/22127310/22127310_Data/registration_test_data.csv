@@ -1,0 +1,42 @@
+TestCaseID,Title,First Name,Last Name,DOB,Address,Postal Code,City,State,Country,Phone,Email,Password,Expected,Actual
+TC_001,Register with all valid inputs,John,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,john.doe@example.com,Abc123@xyz,Registration successful,Registration successful
+TC_002,Register with minimum valid name,A,B,01/01/2000,456 Oak Ave,123456,Smallville,,Macao,1234567890,a.b@example.com,Abc123@xyz,Registration successful,Registration successful
+TC_003,Register with empty First Name,,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,john.doe@example.com,Abc123@xyz,Error: First name is required,Error: First name is required
+TC_004,Register with empty Last Name,John,,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,john.doe@example.com,Abc123@xyz,Error: Last name is required,Error: Last name is required
+TC_005,Register with empty Email,John,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,,Abc123@xyz,Error: Email is required,Error: Email is required
+TC_006,Register with empty Password,John,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,john.doe@example.com,,Error: Password is required,Error: Password is required
+TC_007,Register with empty Phone,John,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,,john.doe@example.com,Abc123@xyz,Error: Phone is required,Error: Phone is required
+TC_008,Register with invalid Email,John,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,user@,Abc123@xyz,Error: Invalid email format,Error: Invalid email format
+TC_009,Register with duplicate Email,John,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,customer@practicesoftwaretesting.com,Abc123@xyz,Error: Email already registered,Registration successful
+TC_010,Register with invalid phone,John,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,abc123,john.doe@example.com,Abc123@xyz,Error: Only numbers are allowed,Error: Only numbers are allowed
+TC_011,Register with 8 characters long password,John,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,john.doe@example.com,abcD123@,Registration successful,Registration successful
+TC_012,Register with 10 characters long password,John,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,john.doe@example.com,abcD12@,Error message: “Password must be minimal 10 characters long”,Error message: “Password must be minimal 10 characters long”
+TC_013,Register without uppercase in password,John,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,john.doe@example.com,abc1234@,Error: Must contain uppercase,Registration successful
+TC_014,Register without lowercase in password,John,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,john.doe@example.com,ABC1234@,Error: Must contain lowercase,Registration successful
+TC_015,Register without number in password,John,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,john.doe@example.com,Abcdefg@,Error: Must include number,Registration successful
+TC_016,Register without special symbol in password,John,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,john.doe@example.com,Abc12345,Error: Must include special symbol,Registration successful
+TC_017,Register with 6-digit number postal code,John,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,john.doe@example.com,Abc123@xyz,Registration successful,Registration successful
+TC_018,Register with 5-digit number postal code,John,Doe,01/01/1990,123 Main St,12345,New York,NY,Macao,1234567890,john.doe@example.com,Abc123@xyz,Error message: “Postal code must be 6 digits”,Registration successful
+TC_019,Register with 7-digit number postal code,John,Doe,01/01/1990,123 Main St,1234567,New York,NY,Macao,1234567890,john.doe@example.com,Abc123@xyz,Error message: “Postal code must be 6 digits”,Registration successful
+TC_020,Register with invalid postal code,John,Doe,01/01/1990,123 Main St,abcde,New York,NY,Macao,1234567890,john.doe@example.com,Abc123@xyz,Error: Invalid postal code,Registration successful
+TC_021,Register with future DOB,John,Doe,01/01/2050,123 Main St,123456,New York,NY,Macao,1234567890,john.doe@example.com,Abc123@xyz,Error: Invalid DOB,Registration successful
+TC_022,Register with no state,John,Doe,01/01/1990,123 Main St,123456,New York,,Macao,1234567890,john.doe@example.com,Abc123@xyz,Error: State required,Error: Country required
+TC_023,Register with empty city,John,Doe,01/01/1990,123 Main St,123456,,NY,Macao,1234567890,john.doe@example.com,Abc123@xyz,Error: City required,Error: City required
+TC_024,Register with invalid country,John,Doe,01/01/1990,123 Main St,123456,New York,NY,,Macao,1234567890,john.doe@example.com,Abc123@xyz,Error: Country required,Error: State required
+TC_025,Register with boundary DOB (min age = 16),John,Doe,04/06/2009,123 Main St,123456,New York,NY,Macao,1234567890,john.doe@example.com,Abc123@xyz,Minimum age required is 16 years.,Registration successful
+TC_026,Register with very old DOB,John,Doe,01/01/1900,123 Main St,123456,New York,NY,Macao,1234567890,john.doe@example.com,Abc123@xyz,Date of birth is not in valid range.,Registration successful
+TC_027,Register with multiple empty fields,,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,,john.doe@example.com,Abc123@xyz,Errors shown for each required field,Errors shown for each required field
+TC_028,Register with newline in email,John,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,user\n@test.com,Abc123@xyz,Error: Invalid email,Error: Invalid email
+TC_029,Register with space before/after email,John,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,' user@test.com ',Abc123@xyz,Error: E-mail format is invalid.,Error: E-mail format is invalid.
+TC_030,Register with emoji in name,😊john,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,john.doe@example.com,Abc123@xyz,Error: Invalid characters,Error: Invalid characters
+TC_031,Register with maximum valid first name length,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,john.doe@example.com,Abc123@xyz,Registration successful,Registration successful
+TC_032,Register with first name exceeding maximum length,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,john.doe@example.com,Abc123@xyz,Error: First name exceeds maximum length,Registration successful
+TC_033,Register with maximum valid last name length,John,BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,john.doe@example.com,Abc123@xyz,Registration successful,Registration successful
+TC_034,Register with last name exceeding maximum length,John,BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,john.doe@example.com,Abc123@xyz,Error: Last name exceeds maximum length,Registration successful
+TC_035,Register with password maximum length,John,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,john.doe@example.com,Abc123@xyzAbc123@xyzAbc123@xyzAb,Registration successful,Registration successful
+TC_036,Register with password exceeding maximum length,John,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,john.doe@example.com,Abc123@xyzAbc123@xyzAbc123@xyzAbc,Error: Password can not be more than 40 characters long.,Error: Password can not be more than 40 characters long.
+TC_037,Register with minimum valid phone number length,John,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890,john.doe@example.com,Abc123@xyz,Registration successful,Registration successful
+TC_038,Register with phone number below minimum length,John,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,123456789,john.doe@example.com,Abc123@xyz,Error: Phone number must be at least 10 digits,Registration successful
+TC_039,Register with phone number exceeding maximum length,John,Doe,01/01/1990,123 Main St,123456,New York,NY,Macao,1234567890123456,john.doe@example.com,Abc123@xyz,Error: Phone number exceeds maximum length,Registration successful
+TC_040,Register with postal code with leading zeros,John,Doe,01/01/1990,123 Main St,001234,New York,NY,Macao,1234567890,john.doe@example.com,Abc123@xyz,Registration successful,Registration successful
+TC_041,Register with invalid city (numbers),John,Doe,01/01/1990,123 Main St,123456,12345,NY,Macao,1234567890,john.doe@example.com,Abc123@xyz,Error: Invalid city format,Registration successful
