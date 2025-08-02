@@ -1,0 +1,47 @@
+TestCaseID,Test Case Description,FirstName,LastName,Email,Phone,Address,Postcode,City,State,Country,CurrentPassword,NewPassword,ConfirmNewPassword,ExpectedResult,NegativeScenario
+TC101,Update profile with valid first name,John,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Profile updated successfully,No
+TC102,Update profile with minimum length first name,Jo,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Profile updated successfully,No
+TC103,Update profile with maximum length first name,AbcdefghijklmnopqrstuvwxyzAbcdefghijklmnopqrstuvwxy,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Profile updated successfully,No
+TC104,Update profile with first name exceeding maximum length,AbcdefghijklmnopqrstuvwxyzAbcdefghijklmnopqrstuvwxyz,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Error: First Name is too long,Yes
+TC105,Update profile with first name containing invalid characters,John123,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Error: Invalid characters in First Name,Yes
+TC106,Update profile with empty first name,<empty>,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Error: First Name is required,Yes
+TC107,Update profile with valid email address,N/A,N/A,new.customer@example.com,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Profile updated successfully,No
+TC108,Update profile with invalid email format - missing @,N/A,N/A,customerexample.com,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Error: Invalid email format,Yes
+TC109,Update profile with invalid email format - incomplete domain,N/A,N/A,customer@,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Error: Invalid email format,Yes
+TC110,Update profile with valid short email,N/A,N/A,a@b.co,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Profile updated successfully,No
+TC111,Update profile with invalid email format - short domain,N/A,N/A,a@b.c,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Error: Email is too short or invalid format,Yes
+TC112,Update profile with valid 10-digit phone number,N/A,N/A,N/A,1234567890,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Profile updated successfully,No
+TC113,Update profile with valid international phone format,N/A,N/A,N/A,+43 (123) 456-789,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Profile updated successfully,No
+TC114,Update profile with invalid phone number format,N/A,N/A,N/A,123-ABC-7890,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Error: Invalid phone number format,Yes
+TC115,Update profile with valid address,N/A,N/A,N/A,N/A,"New Avenue 123, Appt 4B",N/A,N/A,N/A,N/A,N/A,N/A,N/A,Profile updated successfully,No
+TC116,Update profile with valid Austrian postcode,N/A,N/A,N/A,N/A,N/A,1010,N/A,N/A,Austria,N/A,N/A,N/A,Profile updated successfully,No
+TC117,Update profile with invalid Austrian postcode - too short,N/A,N/A,N/A,N/A,N/A,101,N/A,N/A,Austria,N/A,N/A,N/A,Error: Invalid postcode format for Austria,Yes
+TC118,Update profile with invalid Austrian postcode - too long,N/A,N/A,N/A,N/A,N/A,10100,N/A,N/A,Austria,N/A,N/A,N/A,Error: Invalid postcode format for Austria,Yes
+TC119,Update profile with invalid Austrian postcode - alphanumeric,N/A,N/A,N/A,N/A,N/A,A101,N/A,N/A,Austria,N/A,N/A,N/A,Error: Invalid postcode format for Austria,Yes
+TC120,Update profile with valid city name,N/A,N/A,N/A,N/A,N/A,N/A,Vienna,N/A,N/A,N/A,N/A,N/A,Profile updated successfully,No
+TC121,Update profile with invalid city name containing numbers,N/A,N/A,N/A,N/A,N/A,N/A,Vienna1,N/A,N/A,N/A,N/A,N/A,Error: City cannot contain numbers,Yes
+TC122,Update profile with valid country selection,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Germany,N/A,N/A,N/A,Profile updated successfully,No
+TC123,Update profile with invalid country selection,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,NonExistentCountry,N/A,N/A,N/A,Error: Invalid country,Yes
+TC124,Update profile with valid last name,N/A,Smith,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Profile updated successfully,No
+TC125,Update profile with minimum length last name,N/A,Ab,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Profile updated successfully,No
+TC126,Update profile with last name exceeding maximum length,N/A,AbcdefghijklmnopqrstuvwxyzAbcdefghijklmnopqrstuvwxyz,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Error: Last Name is too long,Yes
+TC128,Change password with incorrect current password,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,IncorrectOldP@ss!,StrongN3wP@ssword!,StrongN3wP@ssword!,Error: Incorrect current password,Yes
+TC129,Change password with new password too short,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,ValidOldPassword1!,Sh0rtP@,Sh0rtP@,Error: Password too short,Yes
+TC131,Change password with new password missing uppercase,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,ValidOldPassword1!,noupperc@se1,noupperc@se1,Error: Must contain uppercase,Yes
+TC132,Change password with new password missing lowercase,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,ValidOldPassword1!,NOLOWERC@SE1,NOLOWERC@SE1,Error: Must contain lowercase,Yes
+TC133,Change password with new password missing numbers,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,ValidOldPassword1!,NoNumberP@ss,NoNumberP@ss,Error: Must contain number,Yes
+TC134,Change password with new password missing special characters,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,ValidOldPassword1!,NoSpecialPass1,NoSpecialPass1,Error: Must contain special character,Yes
+TC135,Change password with mismatched password confirmation,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,ValidOldPassword1!,StrongN3wP@ssword!,StrongN3wP@ssword,Error: Passwords do not match,Yes
+TC136,Change password with new password same as current,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,ValidOldPassword1!,ValidOldPassword1!,ValidOldPassword1!,Error: New password same as current,Yes
+TC137,Change password with missing current password,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,<empty>,StrongN3wP@ssword!,StrongN3wP@ssword!,Error: Current password required,Yes
+TC138,Change password with missing new password,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,ValidOldPassword1!,<empty>,<empty>,Error: New password required,Yes
+TC139,Change password with missing confirmation password,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,ValidOldPassword1!,StrongN3wP@ssword!,<empty>,Error: Confirm password required,Yes
+TC140,Test password visibility toggle functionality for new password,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,TestP@ss1,N/A,Password visibility toggled,No
+TC141,Test password visibility toggle functionality for confirm password,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,TestP@ss1,Password visibility toggled,No
+TC142,Update profile with valid state selection,N/A,N/A,N/A,N/A,N/A,N/A,N/A,California,N/A,N/A,N/A,N/A,Profile updated successfully,No
+TC143,Update profile with invalid state containing numbers,N/A,N/A,N/A,N/A,N/A,N/A,N/A,California123,N/A,N/A,N/A,N/A,Error: State cannot contain numbers,Yes
+TC144,Update profile with empty state field,N/A,N/A,N/A,N/A,N/A,N/A,N/A,<empty>,N/A,N/A,N/A,N/A,Error: State is required,Yes
+TC145,Update profile with last name containing invalid characters,N/A,Smith123,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Error: Invalid characters in Last Name,Yes
+TC146,Update profile with empty last name field,N/A,<empty>,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Error: Last Name is required,Yes
+TC127,Change password with valid credentials and strong new password,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,ValidOldPassword1!,StrongN3wP@ssword!,StrongN3wP@ssword!,Password changed successfully,No
+TC130,Change password with valid basic password,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,ValidOldPassword1!,P@ssw0rd,P@ssw0rd,Password changed successfully,No

@@ -1,0 +1,12 @@
+TestCaseID,Test Case Description,SearchTerm,StatusUpdate,Action,ExpectedResult,NegativeScenario
+TC201,Search with full Invoice Number,INV-2022000004,N/A,Search,"Order INV-2022000004 is shown",No
+TC202,Search with Billing Address,Test street 123,N/A,Search,"Only orders with 'Test street 123' are shown",No
+TC203,Search with non-existent term,NonExistentOrder123,N/A,Search,"No orders found",Yes
+TC204,Search with empty string,<empty>,N/A,N/A,"Full order list is displayed",No
+TC205,Reset search field,N/A,N/A,Reset,"Search input cleared, full order list shown",No
+TC206,Navigate to Order Detail (INV-2022000002),N/A,N/A,Edit,"Order details match Invoice INV-2022000002",No
+TC207,Update order status to COMPLETED,N/A,COMPLETED,Update,"Status updated to COMPLETED",No
+TC208,Check status persistency after update,N/A,COMPLETED,Back,"Status in list view is COMPLETED",Yes
+TC209,Try updating status with same value (COMPLETED),N/A,COMPLETED,Update,"Error shown: 'No new status is selected.'",Yes
+TC210,Verify correctness of order detail info,N/A,N/A,VisualCheck,"All details match for INV-2022000002",No
+TC211,Use 'Back' link from order detail page,N/A,N/A,Back,"Redirected to order list with previous state preserved",No
