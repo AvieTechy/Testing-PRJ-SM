@@ -1,0 +1,30 @@
+id,name,category_id
+1,Combination Pliers,7
+2,Pliers,7
+3,Bolt Cutters,7
+4,Long Nose Pliers,7
+5,Slip Joint Pliers,7
+6,Claw Hammer with Shock Reduction Grip,3
+7,Hammer,3
+8,Claw Hammer,3
+9,Thor Hammer,3
+10,Sledgehammer,3
+11,Claw Hammer with Fiberglass Handle,3
+12,Court Hammer,3
+13,Wood Saw,4
+14,Adjustable Wrench,5
+15,Angled Spanner,5
+16,Open-end Spanners (Set),5
+17,Phillips Screwdriver,6
+18,Mini Screwdriver,6
+19,Sheet Sander,9
+20,Belt Sander,9
+21,Circular Saw,10
+22,Random Orbit Sander,9
+23,Cordless Drill 20V,11
+24,Cordless Drill 24V,11
+25,Cordless Drill 18V,11
+26,Cordless Drill 12V,11
+27,Excavator,12
+28,Bulldozer,12
+29,Crane,12
