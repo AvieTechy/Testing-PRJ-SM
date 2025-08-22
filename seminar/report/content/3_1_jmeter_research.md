@@ -1,6 +1,8 @@
-## A Detailed Look at Apache JMeter
+# Apache JMeter
 
-### JMeter's Overall Architecture
+This section introduces Apache JMeter—identified in the prior comparison table as a leading open-source tool for performance testing. It will move from core concepts to practical details and conclude with an end-to-end performance test scenario built in JMeter.
+
+## JMeter's Overall Architecture
 
 Apache JMeter is an open-source tool designed for performance and load testing of web applications and various other services. JMeter has a modular, plugin-based architecture that helps organize and simulate test flows.
 
@@ -20,7 +22,7 @@ The main components in JMeter's architecture include:
 
 These components can be nested in a hierarchical structure within a Test Plan to create complex test scenarios.
 
-### Thread Group
+## Thread Group
 
 A Thread Group is the primary element for configuring how users are simulated. Each Thread Group can be configured with the following settings:
 
@@ -32,7 +34,7 @@ Thread Groups also allow you to configure what happens on an error (e.g., stop t
 
 For example, if you configure 50 threads with a 10-second ramp-up and a loop count of 2, JMeter will start 5 threads every second, and each user will send their requests twice.
 
-### Sampler
+## Sampler
 
 A Sampler is responsible for sending different types of requests to the system being tested. Each Sampler corresponds to a specific protocol or action.
 
@@ -47,7 +49,7 @@ Some common types of Samplers include:
 
 Samplers are crucial as they determine what system is being tested and how.
 
-### Listener
+## Listener
 
 A Listener is a component that helps collect, record, and display test results. Listeners can write to a log, display real-time reports, or save results to a file for later analysis.
 
@@ -61,7 +63,7 @@ Some typical Listeners are:
 
 Choosing the right Listener makes analyzing system performance more intuitive and accurate.
 
-### Timers, Assertions, Pre-Processors, and Post-Processors
+## Timers, Assertions, Pre-Processors, and Post-Processors
 
 1.  **Timers**
 
@@ -100,3 +102,5 @@ A Post-Processor is executed after a Sampler sends a request. It is used to:
 - Extract data from the response to use in a later step.
 - Save data, write to a log, or process the response string.
 - The most popular are the **Regular Expression Extractor**, **JSON Extractor**, and **XPath Extractor**.
+
+\pagebreak
