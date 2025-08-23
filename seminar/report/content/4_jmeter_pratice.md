@@ -289,6 +289,8 @@ Test system stability under continuous login and account access (endurance test)
 | Error Rate         | **0.00%**        |
 | Throughput         | **9.75 req/sec** |
 
+![Response Time Graph for Test Case 01](rtg_s1_tc1.png)
+
 $\Longrightarrow$ System handled browsing load smoothly with no errors and low latency. 95% of requests completed in under 244 ms.
 
 #### Test Case TC02 – Spike Testing
@@ -301,6 +303,8 @@ $\Longrightarrow$ System handled browsing load smoothly with no errors and low l
 | Max Response Time  | **509 ms**       |
 | Error Rate         | **0.00%**        |
 | Throughput         | **7.67 req/sec** |
+
+![Response Time Graph for Test Case 02](rpt_s1_tc2.png)
 
 $\Longrightarrow$ During sudden traffic spikes, performance stayed stable. Slight increase in 95% percentile observed, but still under 500 ms — well within acceptable thresholds.
 
@@ -315,6 +319,8 @@ $\Longrightarrow$ During sudden traffic spikes, performance stayed stable. Sligh
 | Error Rate         | **0.00%**        |
 | Throughput         | **12.3 req/sec** |
 
+![Response Time Graph for Scenario 02](rtg_s2.png)
+
 $\Longrightarrow$ The system managed the full login-to-checkout journey under consistent load with impressive stability. Checkout steps (Add to Cart $\rightarrow$ Submit Order) had slightly higher latency but remained within acceptable bounds.
 
 ### Scenario 3 – Concurrent Login & Account Access (Endurance Test)
@@ -327,6 +333,8 @@ $\Longrightarrow$ The system managed the full login-to-checkout journey under co
 | Max Response Time  | **31,957 ms** (!) |
 | Error Rate         | **0.02%**         |
 | Throughput         | **10.29 req/sec** |
+
+![Response Time Graph for Scenario 03](<Response Time Graph.png>)
 
 $\Longrightarrow$ This was the longest-running and most intense test. While average performance was stable, a few extreme outliers (31s max) were recorded. Error rate remained low ($\approx$ 0.02%) but spiked during ramp-up periods.
 
