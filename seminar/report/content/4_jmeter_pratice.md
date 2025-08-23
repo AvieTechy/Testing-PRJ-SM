@@ -31,6 +31,7 @@ The project involves both research and practical performance testing for the JPe
 ### Testing Activities
 
 The team will conduct system-level performance testing to evaluate the response time and stability of JPetStore under concurrent user access. Key activities include:
+
 - Designing and executing **test scenarios** to simulate realistic user behaviors for the three specified flows:
   - **Scenario 1**: Browsing products without logging in.
   - **Scenario 2**: Logging in and completing a full purchase.
@@ -59,7 +60,7 @@ Evaluate system performance for users browsing products without logging in, simu
 
 ### User Flow
 | Step | Action | HTTP Method | Think Time |
-|------|--------|-------------|------------|
+|--|--------------|:-------:|------|
 | 1    | Access homepage (`/`) | `GET` | 2–5s |
 | 2    | Access category (e.g., `/categories/FISH`) | `GET` | 3–6s |
 | 3    | Select product (e.g., `/products/FI-SW-01`) | `GET` | 5–10s |
@@ -70,7 +71,7 @@ Evaluate system performance for users browsing products without logging in, simu
 #### General Information
 
 | Attribute | Details |
-|-----------|---------|
+|--------|-----------|
 | **Scenario Name** | Browse-Only Load |
 | **Test Case ID** | TC01_BrowseOnly_Load |
 | **Objective** | Test system performance for browsing without login |
@@ -110,7 +111,7 @@ Evaluate system performance for users browsing products without logging in, simu
 #### General Information
 
 | Attribute | Details |
-|-----------|---------|
+|-----------|------------|
 | **Scenario Name** | Spike Load with Recovery |
 | **Test Case ID** | TC02_Spike_Load |
 | **Objective** | Assess performance and recovery under sudden load spikes |
@@ -155,7 +156,7 @@ Simulate a complete purchase process (login, category/product selection, cart ad
 ### User Flow
 
 | Step | Action | HTTP Method | Think Time |
-|------|--------|-------------|------------|
+|--|--------------|:-------:|------|
 | 1    | Access homepage (`/`) | `GET` | 2–4s |
 | 2    | Access login page (`/account/signonForm`) | `GET` | 3–5s |
 | 3    | Login (`/account/signon`) | `POST` | 3–5s |
@@ -218,7 +219,7 @@ Test system stability under continuous login and account access (endurance test)
 ### User Flow
 
 | Step | Action | HTTP Method | Think Time |
-|------|--------|-------------|------------|
+|--|--------------|:-------:|------|
 | 1    | Access homepage (`/`) | `GET` | 2–3s |
 | 2    | Access login page (`/account/signonForm`) | `GET` | 4–6s |
 | 3    | Login (`/account/signon`) | `POST` | 3–5s |
@@ -375,11 +376,12 @@ $\Longrightarrow$ This was the longest-running and most intense test. While aver
     - Add response size assertions to detect accidental payload inflation in future builds.
 
 5. Prioritized Recommendations
-1. Instrument & correlate (GC, thread pools, DB timings) to explain Scenario 3 outliers.
-2. Add p99 / p99.9 tracking and step-level dashboards.
-3. Implement slow request tracing (>2 s) with contextual metadata.
-4. Run repeat endurance test after tuning to validate reduction of long-tail spikes.
-5. Expand scenario coverage to include concurrent checkout + browsing overlap.
+
+- Instrument & correlate (GC, thread pools, DB timings) to explain Scenario 3 outliers.
+- Add p99 / p99.9 tracking and step-level dashboards.
+- Implement slow request tracing (>2 s) with contextual metadata.
+- Run repeat endurance test after tuning to validate reduction of long-tail spikes.
+- Expand scenario coverage to include concurrent checkout + browsing overlap.
 
 6. Success Criteria Validation
 - Met: 95% response time targets, negligible error rates, stable throughput.
