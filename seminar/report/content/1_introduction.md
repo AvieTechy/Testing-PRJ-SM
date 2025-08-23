@@ -1,70 +1,89 @@
 # Introduction
 
-## Project Overview
+## Group Information
 
-The Performance Testing Tools seminar project is a comprehensive study of performance testing tools, focusing on Apache JMeter and AI applications in performance testing. The project aims to explore the basic concepts of Performance Testing (Load Testing, Stress Testing, Spike Testing, Endurance Testing), compare popular tools in the market, and conduct a practical demo with JMeter on the JPetStore system.
+The team consists of 5 members with clearly defined roles to ensure schedule adherence and research quality:
 
-The importance of this project is shown by how Performance Testing plays a key role in ensuring software quality, especially in the digital age when web applications must serve millions of users at the same time. Research and application of AI in Performance Testing is also a new trend, helping to automate result analysis and detect system issues.
-
-## Project Objectives
-
-This project aims to achieve the following key objectives:
-
-- **Understand Core Concepts**: To research and clearly define the fundamental principles of Performance Testing, including its primary types: Load, Stress, Spike, and Endurance Testing.
-- **Compare Testing Tools**: To conduct a comparative analysis of popular performance testing tools, evaluating their features, strengths, and weaknesses to identify suitable use cases.
-- **Deep Dive into JMeter**: To gain in-depth knowledge of the Apache JMeter tool, covering its architecture, core components, and practical usage.
-- **Investigate AI Applications**: To explore how Artificial Intelligence (AI) can be applied to enhance performance testing, particularly in areas like automated result analysis and anomaly detection.
-- **Conduct a Practical Demo**: To apply theoretical knowledge by designing and executing performance test scenarios on the JPetStore demo application using JMeter.
-- **Document and Report Findings**: To produce a comprehensive report detailing the research process, test results, and conclusions drawn from the project.
-- **Share Knowledge**: To present the project's findings and practical demonstrations to the instructor and fellow students, contributing to the collective understanding of the topic.
+| Role | Member | Primary Responsibilities |
+|------|--------|--------------------------|
+| Team Lead | Cao Nhi | Coordination, AI research in Performance Testing, consolidation & presentation |
+| Member | Thanh Thuý | Foundational research & business flow analysis |
+| Member | Minh Trí | Tool comparison, scenario design & JMeter scripting |
+| Member | Cát Tường | In-depth JMeter study (architecture, components) & test plan design |
+| Member | Việt Tú | Environment setup, test execution, demo preparation |
 
 \pagebreak
 
-## Scope of the Project
+## Overview
 
-### Within project scope
+### Motivation
 
-- Research theory about Performance Testing (Load, Stress, Spike, Endurance Testing)
-- Compare Performance Testing tools: JMeter, NeoLoad, WebLOAD, LoadUI, LoadRunner
-- Deep research on Apache JMeter (architecture, components, installation)
-- AI applications in Performance Testing (anomaly detection, automated analysis)
-- Conduct demo on JPetStore system
-- Design and execute test scenarios for business flow: Register → Login → Purchase → Payment
+Performance is a critical factor shaping the user experience of any web application. A system may provide a rich interface and complete functionality, but if it responds slowly or fails under heavy traffic, users will quickly abandon it. In practice, poor performance has often led to revenue loss, reputational damage, and difficulty in scaling operations.
 
+For this reason, Performance Testing is considered an essential step in the software development lifecycle. At the same time, the recent progress in Artificial Intelligence (AI) opens up new opportunities: faster analysis of large volumes of test data, automated anomaly detection, and improved accuracy in diagnosing performance issues. These aspects motivated us to pursue the topic “Performance Testing with Apache JMeter and AI-assisted Analysis.”
 
-### Outside project scope
+### Research Problem
 
-- No deep research on Security Testing or other testing types
-- No development of new automated tools
-- No testing on real production systems
-- No coverage of performance testing for mobile applications
+The study focuses on addressing three key questions:
 
-## Team and Stakeholders
+- How can we select the most suitable testing tool among the many available solutions?
+- What is the proper way to design scenarios that closely reflect real user behavior?
+- At which stages of the Performance Testing cycle can AI provide meaningful support?
 
-| **Role** | **Member** | **Responsibility** |
-|--------|---------|-----------------------------------|
-| Team Leader | Cao Nhi | Planning, AI research in Performance Testing, analysis evaluation, presentation MC |
-| Member | Thanh Thuý | Basic research on Performance Testing and business flow analysis |
-| Member | Minh Trí | Performance Testing tool comparison and JMeter test script writing |
-| Member | Cát Tường | Deep JMeter research (theory) and test plan design |
-| Member | Việt Tú | JMeter installation setup, test execution, and demo video recording |
+### Objectives
 
-| **Stakeholder Type** | **Stakeholder** | **Interest/Expectation** |
-|--------------|----------------|--------------------------------------|
-| **Instructor** | Course instructor | Evaluate research quality, practical application, presentation skills |
-| **Audience** | Other student groups in class | Learn new knowledge about Performance Testing, reference research methods |
-| **Research Community** | Software Testing research community | Scientific value of research, knowledge contribution about AI in Performance Testing |
+1. Standardize the concepts and scope of Performance Testing, with emphasis on Load, Stress, Spike, and Endurance tests.
+2. Compare major performance testing tools (JMeter, NeoLoad, WebLOAD, LoadUI, LoadRunner) in terms of strengths, limitations, and usage contexts.
+3. Gain practical knowledge of Apache JMeter, including its architecture, components, and scripting process.
+4. Explore the potential of AI techniques (e.g., anomaly detection, log/result analysis).
+5. Build and execute a complete testing scenario on JPetStore (Register → Login → Purchase → Payment).
+6. Collect results, perform analysis, and deliver findings in the form of a written report, presentation, and demonstration.
 
-## Timeline Summary
+### Scope
 
-The project is divided into 3 main phases over 9 weeks:
+1. **In scope**
 
-| **Phase** | **Timeline** | **Activities** | **Status** |
-|---------------------------|--------------|---------------------------------|--------------|
-| **Phase 1 - Foundation & Research** | Week 1-3 | Complete theoretical research, tool comparison, JMeter environment setup | `Done` |
-| **Phase 2 - Scenario Design & Testing** | Week 4-7 | Select test system (JPetStore), design test scenarios, write JMeter scripts, execute testing and apply AI | `About to start` |
-| **Phase 3 - Reporting & Presentation** | Week 8-9 | Prepare slides, write detailed report, record demo video and conduct presentation | `Not started yet` |
+- Theoretical study of Performance Testing types (Load, Stress, Spike, Endurance).
+- Tool comparison at an overview level with key technical criteria.
+- Experiments on a demo environment (not production).
+- Proof-of-concept (POC) exploration of AI in result analysis.
 
-Currently the team is at the end of Phase 1, preparing to move to Phase 2 with test system selection and business flow analysis.
+2. **Out of scope**
+
+- Advanced topics such as Security, Penetration, or Mobile Performance Testing.
+- Development of new testing tools from scratch.
+- Optimization of real production infrastructure.
+
+### Project Roadmap
+
+| Phase                             | Weeks | Main Activities                                       | Status    |
+| --------------------------------- | ----- | ----------------------------------------------------- | --------- |
+| Phase 1: Foundation & Research    | 1–3   | Theoretical study, tool comparison, JMeter setup      | Completed |
+| Phase 2: Design & Execution       | 4–7   | Scenario design, scripting, test execution, AI trials | Upcoming  |
+| Phase 3: Reporting & Presentation | 8–9   | Final report, slides, demo video                      | Pending   |
+
+### Stakeholders
+
+| Type      | Stakeholder           | Expectations                                      |
+| --------- | --------------------- | ------------------------------------------------- |
+| Academic  | Supervisor            | Quality of research and practical contribution    |
+| Students  | Class peers           | Reference for methodology and results             |
+| Community | Testers / Researchers | Insights on AI application in Performance Testing |
+
+### Risks and Mitigation
+
+| Risk                                           | Impact                   | Mitigation                                               |
+| ---------------------------------------------- | ------------------------ | -------------------------------------------------------- |
+| Insufficient machine resources under high load | Distorted measurements   | Use profiling, separate load generator and target system |
+| Scripts not reflecting realistic user behavior | Low validity of results  | Validate scenarios with business logic early             |
+| Poor AI model performance                      | False anomalies          | Supplement with statistical baselines, tune parameters   |
+| Delay in Phase 2 execution                     | Time pressure in Phase 3 | Finalize scenarios early, assign tasks in parallel       |
+
+### Document Structure
+
+1. **Chapter 1 – Introduction**: Context, objectives, scope, methodology.
+2. **Chapter 2 – Theoretical Foundations**: Performance Testing concepts, AI support areas, tool comparison.
+3. **Chapter 3 – Apache JMeter**: Overview, installation, architecture & components, basic exercises.
+4. **Chapter 4 – Experimental Demonstration (JPetStore)**: Scenarios, test data & parameters, execution results, AI-assisted analysis.
 
 \newpage

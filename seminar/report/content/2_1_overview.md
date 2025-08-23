@@ -1,3 +1,5 @@
+# Theoretical Foundations
+
 ## Performance Testing Overview
 
 ### Non-functional Testing
