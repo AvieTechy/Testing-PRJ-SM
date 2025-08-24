@@ -6,8 +6,6 @@
 
 **Non-Functional Testing** is the process of evaluating aspects of the software that are not related to its functionality. Instead of focusing on testing specific features, it concentrates on factors such as performance, security, reliability, user interaction, and compatibility. The goal of non-functional testing is to ensure that the software performs well not only from a functional perspective but also from other aspects.
 
-![Types of non-functional testing.](images/image.png)
-
 ### What is Performance Testing?
 
 **Performance Testing** is the process of checking whether a software program runs fast, responds quickly, handles load well, how it uses resources (CPU, RAM, bandwidth, etc.), and whether it can scale to accommodate many concurrent users.

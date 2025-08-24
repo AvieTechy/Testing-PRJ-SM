@@ -46,7 +46,7 @@ This integration transforms performance testing from a manual and reactive proce
 ![Key Performance Testing Tools.](image.png)
 
 | Tool                          | Description                                                                                                                             | Key Weakness                                                                                       |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | **Dynatrace**                 | Provides automatic anomaly detection and root cause analysis using Davis AI on logs, traces, and metrics.                               | High cost; complex installation and configuration.                                                 |
 | **BlazeMeter**                | Supports large-scale load and stress testing; includes data analysis and recommendations for script/test data optimization.             | Requires technical expertise for effective usage.                                                  |
 | **LambdaTest (HyperExecute)** | Enables cloud-based load tests (e.g., JMeter integration), collects KPIs like response time and error insights across multiple regions. | Lacks advanced AI-powered root cause analysis.                                                     |
@@ -57,7 +57,7 @@ This integration transforms performance testing from a manual and reactive proce
 
 
 | Rank | Tool           | Strengths                                                | Weaknesses                              | Pricing                  | Best Fit                                      |
-| ---- | -------------- | -------------------------------------------------------- | --------------------------------------- | ------------------------ | --------------------------------------------- |
+| ------ | ------------------------ | ---------------------------------------------------- | ----------------------------------- | -------------------- | ----------------------------------------- |
 | 1    | **Dynatrace**  | Comprehensive AI-based analysis, real-time monitoring    | Expensive, complex setup                | Enterprise-level pricing | Large, complex systems                        |
 | 2    | **BlazeMeter** | Powerful load testing, CI/CD integration                 | Requires technical expertise            | From \$99/month          | DevOps and continuous testing                 |
 | 3    | **LambdaTest** | Cloud-based execution, supports multiple regions         | Limited AI analysis                     | From \$15/month          | Cross-browser and distributed load testing    |
