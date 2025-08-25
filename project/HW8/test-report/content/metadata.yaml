@@ -1,7 +1,7 @@
 ---
 # Document Information
-document_name: "TEST PLAN"
-title: "SOFTWARE TESTING PROJECT PLAN"
+document_name: "TEST REPORT"
+title: "SOFTWARE TESTING PROJECT REPORT"
 author: "Group 07"
 date: "Aug 10, 2025"
 
@@ -51,7 +51,7 @@ keywords:
   - group project
   - collaboration
 subject: "Technical Documentation"
-description: "This document outlines the planning process for software testing."
+description: "This document outlines the process for software testing."
 classification: "Internal"
 distribution: "Team Members, Supervisors"
 ---
