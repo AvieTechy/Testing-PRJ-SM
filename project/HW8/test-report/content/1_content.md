@@ -1,104 +1,143 @@
-# Introduction
+# Objectives of the Report
 
-## Document Overview
+This report consolidates the results of testing activities for *The Toolshop* (Sprint 5 with Bugs). The objectives are:
 
-This document reports the results of testing activities for *The Toolshop* (Sprint 5 with Bugs). Testing was executed before **25-Aug-2025**, covering functional, GUI, API, automation, and performance aspects.
+- Verify that implemented features meet the specified requirements.
+- Identify, document, and classify defects based on severity and module.
+- Measure the effectiveness of the testing effort using defined metrics.
+- Provide insights, lessons, and recommendations for future development and testing.
 
-## Abbreviations and Glossary
+# Application Overview
 
-- **SUT**: System Under Test
-- **GUI**: Graphical User Interface
-- **API**: Application Programming Interface
-- **TC**: Test Case
-- **BR**: Bug Report
-- **OK**: Test passed
-- **NOK**: Test failed
-- **POK**: Partial OK (some steps failed)
-- **NR**: Not Run
-- **NC**: Not Completed
+## General Description
 
-## References
+*The Toolshop* is a training-oriented e-commerce application with intentionally seeded bugs in Sprint 5. It enables users to register, log in, browse products, manage shopping carts, perform checkout, process payments, and generate invoices. This sprint focused on enhancing payment processing and invoice generation, with known defects introduced for learning purposes.
 
-- [R1] Test Plan – The Toolshop (Sprint 5 with Bugs), Version 1.0, 24-Aug-2025
-- [R2] Assignment Description – CS423 CSC13003, HW#08
-- [STD1] IEEE 829 Standard for Software Test Documentation
+## Technologies Used
 
-## Conventions
-- Test decisions are limited to: **OK, NOK, POK, NR, NC**.
-- Bugs are tracked in **GitHub Issues** with IDs (e.g., BUG-101).
+| Component | Technology |
+| --- | ----- |
+| Frontend | Angular 16.2.0 |
+| Backend | Laravel 10.0 (PHP 8.1) |
+| Database | MySQL 8.0.28 |
+| Deployment | Docker 20.10.17 (local) |
 
+## Main Modules
 
-# Overview of Test Results
+- User authentication and management
+- Product catalog browsing and details
+- Shopping cart operations
+- Checkout and payment
+- Invoice generation
+- Admin module (user management, export/report features)
 
-## Tests Log
+# Test Scope
 
-Testing was executed on a **localhost Docker environment** (Laravel backend, Angular frontend, MySQL DB).
+## In Scope
 
-## Overall Assessment
+- User login/logout functionality
+- Cart operations (add, update, remove items)
+- Checkout and payment workflows (including error scenarios)
+- Invoice generation after successful checkout
+- Core APIs: `/users/login`, `/users`, `/payment/check`, `/invoices`,...
+- GUI validation: input fields, form submissions, error messages
+- Load and spike performance testing using JMeter (50–200 users)
 
-- **Functional coverage**: ~99% executed, 62% OK.
-- **GUI testing**: Found layout/validation issues, 2 critical user flow bugs.
-- **API testing**: 85% OK, 2 NOK for error handling in `/payment/check`.
-- **Automation**: Selenium + Newman regression suites executed successfully.
-- **Performance**: Stable up to 100 VUs, failures observed at 200 VUs (spike).
+## Out of Scope
 
-## Impact of Test Environment
+- Advanced penetration testing (e.g., SQL injection, XSS beyond basic payloads)
+- Mobile device/responsive compatibility testing
+- Third-party live payment gateway integration (simulated payment only)
+- Localization (English only tested)
 
-Tests were limited by:
+## Not Tested
 
-- Student laptops (hardware bottleneck in JMeter tests).
-- Network variations affecting response time.
-- Localhost environment only (no staging/production simulation).
+- Admin module “export CSV” feature (not implemented in Sprint 5)
+- Endurance test (8-hour simulation), aborted after 3 hours due to hardware limitations
 
-# Detailed Test Results
+# Types of Testing Performed
 
-## Summary Table
+## Functional Testing
 
-| Test ID    | Description                         | Requirement | Decision | Comments / Bug ID |
-|------------|-------------------------------------|-------------|----------|-------------------|
-| LOGIN-001  | Login with valid credentials        | REQ-001     | OK       | Works as expected |
-| LOGIN-002  | Login with invalid password         | REQ-001     | OK       | Error message displayed |
-| LOGIN-003  | Login with empty fields             | REQ-001     | NOK      | No validation shown (BUG-102) |
-| CART-001   | Add item to cart                    | REQ-007     | OK       | Item added correctly |
-| CART-003   | Remove item from cart               | REQ-008     | POK      | Item removed, but total not updated until refresh (BUG-110) |
-| CHECKOUT-005 | Checkout with expired card        | REQ-010     | NOK      | Payment API crashed (BUG-123) |
-| INVOICE-002 | Generate invoice after purchase    | REQ-015     | OK       | Invoice created but formatting minor (BUG-130) |
-| ADMIN-007  | Export user list to CSV             | REQ-020     | NR       | Feature not implemented |
-| PERF-010   | 8-hour endurance test               | REQ-030     | NC       | Aborted after 3 hours (hardware limit) |
+- Verified login (TC-001), cart add/remove (TC-005), checkout (TC-010), and invoice generation (TC-015).
+- Example: TC-010 (Checkout with valid payment) passed; TC-011 (Checkout with expired card) failed due to API crash.
 
-## Examples
+## GUI Testing
 
-### OK Test
+- Checked layout consistency, form validation, and error messages across login, cart, and checkout pages.
+- Example: TC-020 (Validate checkout form) identified layout glitch on mobile view (Bug #130).
 
-- **Test ID:** LOGIN-001
-- **Description:** Login with valid credentials
-- **Decision:** OK
-- **Comments:** Successful login, session established
+## API Testing
 
-### NOK Test
+- Used Postman/Newman to test `/users/login`, `/users`, `/payment/check`, and `/invoices`.
+- Example: TC-030 (POST /payment/check with invalid token) returned 500 error (Bug #124).
 
-- **Test ID:** CHECKOUT-005
-- **Description:** Checkout with expired credit card
-- **Decision:** NOK
-- **Comments:** Payment API crashed – Bug BUG-123
+## Automation Testing
 
-### Partial OK Test
+- Selenium WebDriver scripts for login (TC-040) and checkout (TC-041); Newman collection run in GitHub Actions CI.
+- Example: TC-041 passed with 100% script coverage.
 
-- **Test ID:** CART-003
-- **Description:** Remove item from cart
-- **Decision:** POK
-- **Comments:** Item removed, total not updated until refresh (Bug BUG-110)
+## Performance Testing
 
-### Not Run Test
+- JMeter load tests with 50–100 users (stable); spike test with 200 users showed 500 errors.
+- Example: TC-050 (200-user spike) failed after 5 minutes.
 
-- **Test ID:** ADMIN-007
-- **Description:** Export user list to CSV
-- **Decision:** NR
-- **Comments:** Not implemented in Sprint 5
+# Test Environment and Tools
 
-### Not Completed Test
+## Test Environment
 
-- **Test ID:** PERF-010
-- **Description:** 8-hour endurance test
-- **Decision:** NC
-- **Comments:** Aborted due to laptop overheating after 3 hours
+| Environment Component | Details |
+| --- | ------- |
+| Deployment | Docker Compose (Laravel + MySQL) |
+| Client machines | Windows 10/11 (4–8 GB RAM), Ubuntu 20.04 |
+| Network | Wi-Fi 50 Mbps+ (shared) |
+| Browsers | Chrome 126, Firefox 128, Edge 126 |
+
+## Tools Used
+
+| Tool | Purpose |
+| --- | ------- |
+| Postman/Newman | API functional and regression testing |
+| Selenium | GUI automation testing |
+| JMeter | Load, stress, spike performance testing |
+| GitHub Actions | CI/CD automation |
+| Google Sheets | Test case and defect tracking |
+
+# Lessons Learned
+
+- Early seed data preparation prevented delays in checkout testing.
+- Consistent bug logging (ID, severity, steps) improved defect tracking efficiency.
+- Hardware constraints limited performance testing; stronger machines are required.
+- Automation reduced regression testing time by 40% near the deadline.
+
+# Recommendations
+
+- Resolve critical checkout and payment bugs before Sprint 6.
+- Test Admin module functions (CSV export, role management) in future sprints.
+- Enhance validation rules to minimize user errors.
+- Upgrade to dedicated servers or better hardware for reliable performance testing.
+
+# Exit Criteria
+
+- At least 90% of test cases executed (achieved 99%).
+- All Critical bugs identified and logged.
+- Regression cycle completed after major fixes (100% coverage).
+- Test Report prepared and submitted by August 25, 2025.
+
+# Conclusion
+
+Testing for *The Toolshop (Sprint 5 with Bugs)* was completed on **25-Aug-2025** with execution coverage of 98% and 18 defects logged.
+
+**Strengths**
+
+- Broad coverage of functional and API testing.
+- High-value defect detection in checkout/payment workflows.
+- Automation and CI integration improved efficiency.
+
+**Weaknesses**
+
+- Critical payment-related defects remain unresolved.
+- Admin module incomplete and minimally tested.
+- Performance testing limited by local hardware capacity.
+
+Overall, the application meets most core requirements but cannot be considered production-ready due to unresolved checkout and payment issues. This report will serve as the foundation for defect resolution and improved testing practices in Sprint 6 and beyond.
